@@ -24,7 +24,6 @@ export const STAFF_QUERY = groq`*[_type == 'staff'] {
 export const GALLERY_QUERY = groq`*[_type == 'gallery' && slug.current == $slug][0]{
     name,
     "slug": slug.current,
-    date,
     eventType,
     "photo": image.asset->url,
     "galleryUrls": gallery[].asset->url,
@@ -42,7 +41,6 @@ export const EVENT_QUERY = groq`*[_type == 'event' && slug.current == $slug][0] 
     name,
     "slug": slug.current,
     podnadpis,
-    date,
     text,
     reservation_text,
     "photo": image.asset->url,

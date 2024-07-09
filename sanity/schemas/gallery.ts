@@ -21,7 +21,7 @@ export const galleryType = defineType({
         defineField({
             name: "date",
             title: "Datum koncertu",
-            type: "string",
+            type: "date",
         }),
         defineField({
             name: "time",

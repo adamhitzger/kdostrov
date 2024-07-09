@@ -30,9 +30,9 @@ export default async function Home() {
         {events.map((e: EventCard, idx: number) => (
           <div key={idx} className="flex flex-row items-center border-t-2 border-white pt-4 w-full justify-between ">
             <Image src={e.photo} alt={e.photo} width={150} height={150} />
-            <div className="hidden sm:flex flex-col ml-6 md:my-0 content-start">
+            <div className="hidden sm:flex flex-col ml-6 md:my-0 content-start w-full space-y-6">
               <Badge className="w-fit ">{e.eventType}</Badge>
-              <div className="text-xl">
+              <div className="text-xl text-left">
                 <span>{`${e.name}`}</span><br />
                 <span>{`${e.date} ${e.time}`}</span>
               </div>
@@ -49,7 +49,7 @@ export default async function Home() {
       <section className="flex w-full flex-col py-10">
         <div className="my-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-4xl font-bold text-white">Fotogalerie</h2>
+            <h2 className="text-5xl font-bold text-white">Fotogalerie</h2>
           </div>
         </div>
         <div className="my-5 grid grid-cols-2 lg:grid-cols-3 w-full gap-5 lg:gap-8 min-h-screen">
