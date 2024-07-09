@@ -2,18 +2,16 @@ import NewsletterForm from "@/components/newsletterForm";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { CarouselQuery, EventCard, GalleryCard } from "@/sanity/lib/interfaces";
-import { CAROUSEL_QUERY, EVENTS_QUERY, GALLERY_MAINPAGE_QUERY } from "@/sanity/lib/queries";
+import { EventCard, GalleryCard } from "@/sanity/lib/interfaces";
+import { CAROUSEL_QUERY, GALLERY_MAINPAGE_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import Link from "next/link";
 import ImageSlider from "@/components/imageSlider";
 
 export default async function Home() {
-  const eventsPromise = await sanityFetch<EventCard[]>({ query: EVENTS_QUERY });
-  const carouselPromise = await sanityFetch<CarouselQuery[]>({ query: CAROUSEL_QUERY });
+  const carouselPromise = await sanityFetch<EventCard[]>({ query: CAROUSEL_QUERY });
   const galleryPromise = await sanityFetch<GalleryCard[]>({ query: GALLERY_MAINPAGE_QUERY });
-  const [events, carousel, gallery] = await Promise.all([
-    eventsPromise,
+  const [carousel, gallery] = await Promise.all([
     carouselPromise,
     galleryPromise
   ]);
@@ -27,7 +25,7 @@ export default async function Home() {
         <div className="w-fit my-10 lg:my-20">
           <h2 className="text-5xl font-bold tracking-wide">Akce</h2>
         </div>
-        {events.map((e: EventCard, idx: number) => (
+        {carousel.map((e: EventCard, idx: number) => (
           <div key={idx} className="flex flex-row items-center border-t-2 border-white pt-4 w-full justify-between ">
             <Image src={e.photo} alt={e.photo} width={150} height={150} />
             <div className="hidden sm:flex flex-col ml-6 md:my-0 content-start w-full space-y-6">

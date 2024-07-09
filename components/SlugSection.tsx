@@ -15,7 +15,7 @@ export default function SlugSection({ text, rsText, url, reenio }: SSProps) {
             <div className='w-full h-full text-justify'>
                 <PortableText value={text} />
             </div>
-            <div className='flex flex-col w-full h-full'>
+            <div className='flex flex-col w-full h-full space-y-5'>
                 <div className='w-full h-1/2 items-center text-center'>
                     <PortableText value={rsText} />
                 </div>

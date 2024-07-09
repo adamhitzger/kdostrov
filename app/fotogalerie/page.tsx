@@ -22,8 +22,8 @@ export default async function Gallery() {
 
                     <div key={idx} className="w-full h-full ">
                         <Link href={`/fotogalerie/${g.slug}`}>
-                            <div className=" relative h-2/3 rounded-lg ">
-                                <Image src={g.photo} alt={g.photo} fill={true} className="object-cover w-full h-full rounded-lg shadow-md shadow-white hover:shadow-lg hover:opacity-80" />
+                            <div className=" relative h-96 rounded-lg ">
+                                <Image src={g.photo} alt={g.photo} fill={true} className="object-contain w-full h-full rounded-lg shadow-md shadow-white hover:shadow-lg hover:opacity-80" />
                             </div>
                         </Link>
                         <div className="text-white flex flex-col h-1/3 text-lg p-2">

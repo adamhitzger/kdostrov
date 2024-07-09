@@ -2,24 +2,29 @@ import React from "react";
 
 type EventType = "Koncerty" |"Plesy" |"taneční kurzy" |"Výstavy/Prodejní akce" |"Stolní tenis";
 type PositionType = "Obrázek vlevo" | "Text vlevo"; 
+type FontColor = "black" | "white";
 
 export interface Plany {
     koncertni_plany: string[];
     zasedaci_plany: string[];
 }
 
-export interface Equipment {
-    image: string;
-    heading: string;
-    text: string[];
-    download: string;
+export interface EquipmentInt {
+    photo: string;
+    text: any;
 };
 
 export interface Staff {
-    name: string;
-    email: string;
-    phone: string;
-    position: string;
+    contact: any;
+    staffs: Staffs[];
+}
+
+export interface Staffs{
+    _type: "staffObject" | undefined;
+    jmeno: string;
+    mail: string;
+    telefon: string;
+    funkce: string;
 }
 
 export interface Gallery {
@@ -79,6 +84,7 @@ export interface TextWithImageSection {
     position: PositionType;
     isDynamic: boolean;
     node?: React.ReactNode;
+    color?: FontColor;
 }
 
 export interface CarouselQuery {
@@ -96,3 +102,8 @@ export interface SocialList {
     icon: string;
     link: string;
 }
+
+export type Sponsors = {
+    img: string;
+    link: string;
+  };

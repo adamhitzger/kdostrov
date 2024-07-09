@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import { defineType, defineField, defineArrayMember } from "sanity";
 
 export const equipmentType = defineType({
     name: "equipment",
@@ -11,11 +11,6 @@ export const equipmentType = defineType({
             type:"image"
         }),
         defineField({
-            name:"heading",
-            title:"Nadpis",
-            type:"string"
-        }),
-        defineField({
             name:"text",
             title:"Popis",
             type:"array",
@@ -26,7 +21,10 @@ export const equipmentType = defineType({
         defineField({
             name:"download",
             title:"Dokument ke stažení",
-            type:"file"
+            type: "object",
+            fields: [
+                {name: "pdf", type:"array", title:"Soubor", of:[{type: "file"}]}
+            ]
         }),
     ]
 })

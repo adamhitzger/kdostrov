@@ -9,16 +9,20 @@ export const PLANS_QUERY = groq`*[_type == 'plans']{
 
 export const EQUIPMENT_QUERY = groq`*[_type == 'equipment'] {
     "photo": image.asset->url,
-    heading,
-    text,
-    "document": download.asset->url,
+    text
 }`;
 
 export const STAFF_QUERY = groq`*[_type == 'staff'] {
-    name,
-    email,
-    phone,
-    position,
+    contact,
+    staffs[]{
+        _type == "staffObject" => {
+        _type,
+        jmeno,
+        mail,
+        telefon,
+        funkce
+      },
+    }
 }`;
 
 export const GALLERY_QUERY = groq`*[_type == 'gallery' && slug.current == $slug][0]{
@@ -62,13 +66,15 @@ export const EVENTS_QUERY = groq`*[_type == 'event'] | order(date asc) {
     eventType,
 }`;
 
-export const CAROUSEL_QUERY = groq`*[_type == 'event'][0...5] | order(date asc) {
+export const CAROUSEL_QUERY = groq`*[_type == 'event' && eventType == 'Koncerty'][0...5] | order(date asc) {
     name,
     "slug": slug.current,
-    "photo": image.asset->url,
+    "banner": image.asset->url,
+    "photo": picture.asset->url,
     price,
     date,
     time,
+    eventType
 }`;
 
 export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery'][0...3] | order(date asc){

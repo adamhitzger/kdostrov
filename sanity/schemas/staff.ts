@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import { defineType, defineField, defineArrayMember } from "sanity";
 
 export const staffType = defineType({
     name: "staff",
@@ -6,24 +6,23 @@ export const staffType = defineType({
     type: "document",
     fields: [
         defineField({
-            name:"name",
-            title:"Celé jméno včetně titulu",
-            type:"string",
+            name:"contact",
+            title:"Otevírací hodiny",
+            type:"array",
+            of: [
+                {type: "block"}
+            ]
         }),
         defineField({
-            name:"email",
-            title:"Email",
-            type:"string",
-        }),
-        defineField({
-            name:"phone",
-            title:"Telefonní číslo",
-            type:"string"
-        }),
-        defineField({
-            name:"position",
-            title:"Funkce",
-            type:"string"
+            name:"staffs",
+            title:"Zaměstnanci",
+            type:"array",
+            of: [
+                defineArrayMember({
+                    name:"staffObject",
+                    type: "staffObject"
+                })
+            ]
         }),
     ]
 })
