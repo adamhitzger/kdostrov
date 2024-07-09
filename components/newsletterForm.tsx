@@ -35,7 +35,7 @@ export default function NewsletterForm() {
                 <h3 className="text-lg ">Budeme Vás informovat o nadcházejících událostech, slevách atd.</h3>
                 <form className="flex flex-row gap-x-2  font-semibold " ref={formRef} action={sendNewsletter}>
                     <Input className="bg-white text-black text-base tracking-wider border border-white" name="email" placeholder="Zadejte email" defaultValue={form.email} type="email" disabled={isPending} onChange={handleChange} required />
-                    <Button variant="outline" disabled={isPending}>{isPending ? "Odesílám" : "Odeslat"}</Button>
+                    <Button className="my-0" variant="outline" disabled={isPending}>{isPending ? "Odesílám" : "Odeslat"}</Button>
                 </form>
             </div>
             <div className="w-full lg:w-1/2 space-y-4 border border-white py-10">

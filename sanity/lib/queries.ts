@@ -12,7 +12,7 @@ export const EQUIPMENT_QUERY = groq`*[_type == 'equipment'] {
     text
 }`;
 
-export const STAFF_QUERY = groq`*[_type == 'staff'] {
+export const STAFF_QUERY = groq`*[_type == 'staff'][0] {
     contact,
     staffs[]{
         _type == "staffObject" => {

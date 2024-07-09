@@ -14,12 +14,12 @@ export interface EquipmentInt {
     text: any;
 };
 
-export interface Staff {
+export interface StaffQuery {
     contact: any;
     staffs: Staffs[];
 }
 
-export interface Staffs{
+export type Staffs ={
     _type: "staffObject" | undefined;
     jmeno: string;
     mail: string;
