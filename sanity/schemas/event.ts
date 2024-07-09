@@ -25,7 +25,7 @@ export const eventType = defineType({
         defineField({
             name: "date",
             title: "Datum konání",
-            type: "date",
+            type: "string",
         }),
         defineField({
             name: "time",

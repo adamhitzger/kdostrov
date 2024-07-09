@@ -11,7 +11,7 @@ export default async function EventPage({ params }: { params: { slug: string } }
 
     return (
         <main className="bg-white">
-            <section className={`w-full relative h-full bg-cover flex z-10 before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]`} style={{ backgroundImage: `url(${event.photo})` }}>
+            <section className={`w-full relative h-screen bg-cover flex z-10 before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]`} style={{ backgroundImage: `url(${event.photo})` }}>
                 <div className="w-full leading-normal mt-40 lg:mt-20 space-y-4 lg:w-1/2 text-gray-200 font-bold text-5xl flex-col px-10 lg:px-20 py-10">
                     {event.date ? <span>{`${event.date} ${event.time}`}</span> : null}<br />
                     {event.name ? <span>{event.name}</span> : null}<br />

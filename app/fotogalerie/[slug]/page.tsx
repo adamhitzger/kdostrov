@@ -11,7 +11,7 @@ export default async function EventGalleryPage({ params }: { params: { slug: str
         <main className="tracking-widest w-full flex flex-col min-h-screen px-10 lg:px-20 pt-10 bg-white">
             <TextWithImage url={eventgallery.photo} position="Text vlevo" isDynamic={false}
                 node={
-                    <div className="flex flex-col py-16 h-full justify-between gap-y-5">
+                    <div className="flex flex-col py-16 h-full justify-between gap-y-5 items-center">
                         <div>
                             <div className="flex flex-row gap-x-3 items-center">
                                 <hr className="bg-yellow-200 w-16 border-none text-yellow-200 h-0.5" /> <span className="text-gray-400 text-lg uppercase">{eventgallery.eventType ? eventgallery.eventType : null}</span>

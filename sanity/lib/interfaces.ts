@@ -47,6 +47,7 @@ export interface EventCard {
     slug: {
         current: string,
     };
+    banner: string;
     photo: string;
     price: number,
     date: string;
