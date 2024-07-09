@@ -33,8 +33,8 @@ export default function Navbar() {
             label: "Provoz",
         },
         {
-            route: "/vybaveni",
-            label: "Vybavení",
+            route: "/plany",
+            label: "Zasedací plány",
         },
         {
             route: "/kontakt",
