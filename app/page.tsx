@@ -7,7 +7,6 @@ import { CAROUSEL_QUERY, GALLERY_MAINPAGE_QUERY, STAFF_QUERY } from "@/sanity/li
 import Image from "next/image";
 import Link from "next/link";
 import ImageSlider from "@/components/imageSlider";
-import { PortableText } from "next-sanity";
 
 export default async function Home() {
   const carouselPromise = await sanityFetch<EventCard[]>({ query: CAROUSEL_QUERY });
@@ -20,7 +19,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10 text-white">
 
-      <section className="flex w-full px-10">
+      <section className="flex w-full px-3 lg:px-10">
         <ImageSlider slides={carousel} />
       </section>
       <section className="grid grid-cols-1 gap-y-4 w-full lg:px-28">
