@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { TextWithImageSection } from "@/sanity/lib/interfaces";
-import { portableComponents } from "@/sanity/lib/components";
+import Link from "next/link";
 
 export default function TextWithImage({ text, url, position, isDynamic, node, color }: TextWithImageSection) {
     return (
@@ -11,7 +11,17 @@ export default function TextWithImage({ text, url, position, isDynamic, node, co
                 <div className={`text-${!color ? "black" : color} flex flex-col h-full items-center text-xl leading-8 `}>
                     {node ? node : null}
                     {isDynamic && text ? (text ? <PortableText
-                        value={text} components={portableComponents}
+                        value={text} components={{
+                            marks: {
+                                link: ({ children, value }) => {
+                                    return (
+                                        <Link href={value.href} className="text-blue-400 underline">
+                                            {children}
+                                        </Link>
+                                    )
+                                }
+                            }
+                        }}
                     /> : null) : (text ? <p>{text}</p> : null)}
 
                 </div>

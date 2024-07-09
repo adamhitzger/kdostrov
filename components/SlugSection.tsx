@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React from 'react'
 import { Button } from './ui/button';
 import { PortableText } from "next-sanity";
-import { portableComponents } from '@/sanity/lib/components';
 type SSProps = {
     text: any;
     rsText: any;
@@ -18,7 +17,17 @@ export default function SlugSection({ text, rsText, url, reenio }: SSProps) {
             </div>
             <div className='flex flex-col w-full h-full space-y-5'>
                 <div className='w-full h-1/2 items-center text-center'>
-                    <PortableText value={rsText} components={portableComponents} />
+                    <PortableText value={rsText} components={{
+                        marks: {
+                            link: ({ children, value }) => {
+                                return (
+                                    <Link href={value.href} className="text-blue-400 underline">
+                                        {children}
+                                    </Link>
+                                )
+                            }
+                        }
+                    }} />
                 </div>
                 <div className='w-full h-1/2 text-white flex flex-col items-center'>
                     {url ? <Link href={url}><Button size={"lg"} variant={"outline"}>Koupit vstupenky online</Button></Link> : null}
