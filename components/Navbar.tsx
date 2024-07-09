@@ -29,8 +29,8 @@ export default function Navbar() {
         },
 
         {
-            route: "/provoz",
-            label: "Provoz",
+            route: "/vybaveni",
+            label: "Technické vybavení",
         },
         {
             route: "/plany",
