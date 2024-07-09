@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { VisualEditing } from "next-sanity"
+import { draftMode } from "next/headers"
 import "./globals.css";
-
+import { cn } from "@/lib/utils";
+import NewsletterForm from "@/components/newsletterForm";
+import Link from "next/link";
+import Image from "next/image";
+import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -14,9 +20,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const images: string[] = [
+    "https://gate.thepay.cz/img/thepay-v2-210726-transparent.svg?pid=19"
+  ]
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn("bg-black text-white", inter.className)}>
+        {draftMode().isEnabled && (
+          <div>
+            <a className="p-2 bg-blue-300 block" href="/api/disable-draft">
+              Disable preview mode
+            </a>
+          </div>
+        )}
+        <Navbar />
+        {children}
+        <NewsletterForm />
+        {images.map((i: string, idx: number) => (
+          <section key={idx} className="flex w-full relative h-28 px-10 my-10">
+            <Link href={"https://web.thepay.cz"} rel="noopener" target="_blank">
+              <Image src={i} alt={i} fill={true} className="bg-cover object-contain" />
+            </Link>
+          </section>
+        ))}
+        {draftMode().isEnabled && <VisualEditing />}
+      </body>
     </html>
   );
 }
