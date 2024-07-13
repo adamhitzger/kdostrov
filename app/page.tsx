@@ -7,6 +7,7 @@ import { CAROUSEL_QUERY, GALLERY_MAINPAGE_QUERY, STAFF_QUERY } from "@/sanity/li
 import Image from "next/image";
 import Link from "next/link";
 import ImageSlider from "@/components/imageSlider";
+import { getColors } from "@/lib/utils";
 
 export default async function Home() {
   const carouselPromise = await sanityFetch<EventCard[]>({ query: CAROUSEL_QUERY });
@@ -30,10 +31,10 @@ export default async function Home() {
           <div key={idx} className="flex flex-row items-center border-t-2 border-white pt-4 w-full justify-between ">
             <Image src={e.photo} alt={e.photo} width={150} height={150} />
             <div className="hidden sm:flex flex-col ml-6 md:my-0 content-start w-full space-y-6">
-              <Badge className="w-fit ">{e.eventType}</Badge>
+              <Badge className={`w-fit ${getColors(e.eventType)}`}>{e.eventType}</Badge>
               <div className="text-xl text-left">
                 <span>{`${e.name}`}</span><br />
-                <span>{`${e.date} ${e.time}`}</span>
+                <span>{` ${e.time}`}</span>
               </div>
             </div>
             <Link href={`${e.slug}`}>

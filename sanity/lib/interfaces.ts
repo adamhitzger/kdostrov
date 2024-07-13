@@ -1,6 +1,6 @@
 import React from "react";
 
-type EventType = "Koncerty" |"Plesy" |"taneční kurzy" |"Výstavy/Prodejní akce" |"Stolní tenis";
+export type EventType = "Koncerty" |"Plesy" |"Taneční kurzy" |"Výstavy/Prodejní akce" |"Stolní tenis";
 type PositionType = "Obrázek vlevo" | "Text vlevo"; 
 type FontColor = "black" | "white";
 

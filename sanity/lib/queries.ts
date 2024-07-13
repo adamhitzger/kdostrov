@@ -7,7 +7,7 @@ export const PLANS_QUERY = groq`*[_type == 'plans']{
     "zasedaci_plany": seatPlans[].asset->url,
 }`;
 
-export const EQUIPMENT_QUERY = groq`*[_type == 'equipment'] {
+export const EQUIPMENT_QUERY = groq`*[_type == 'equipment'] | order(poradi asc) {
     "photo": image.asset->url,
     text
 }`;
@@ -33,7 +33,7 @@ export const GALLERY_QUERY = groq`*[_type == 'gallery' && slug.current == $slug]
     "galleryUrls": gallery[].asset->url,
 }`;
 
-export const GALLERIES_QUERY = groq`*[_type == 'gallery'] | order(date asc){
+export const GALLERIES_QUERY = groq`*[_type == 'gallery'] | order(date desc){
     name,
     "slug": slug.current,
     date,

@@ -44,12 +44,12 @@ export default function Navbar() {
     const [active, setActive] = useState("Domů");
 
     return (
-        <nav className="w-full flex py-6 justify-between items-center navbar bg-white">
+        <nav className="w-full flex py-6 justify-between items-center navbar bg-white" id="top">
             <Link href={"/"}>
                 <Image
                     width={256}
                     height={128}
-                    src="/ostrov.jpg"
+                    src="/sponzors/logo.jpg"
                     alt="Logo"
                 />
             </Link>

@@ -6,6 +6,11 @@ export const equipmentType = defineType({
     type: "document",
     fields: [
         defineField({
+            name:"poradi",
+            title:"Pořadí",
+            type:"number"
+        }),
+        defineField({
             name:"image",
             title:"Fotka",
             type:"image"

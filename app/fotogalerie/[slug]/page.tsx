@@ -1,8 +1,8 @@
+import Photos from "@/components/Photos";
 import TextWithImage from "@/components/textWithImage";
 import { sanityFetch } from "@/sanity/lib/fetch"
 import { Gallery } from "@/sanity/lib/interfaces"
 import { GALLERY_QUERY } from "@/sanity/lib/queries";
-import Image from "next/image";
 
 export default async function EventGalleryPage({ params }: { params: { slug: string } }) {
     const eventgallery = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params });
@@ -23,13 +23,7 @@ export default async function EventGalleryPage({ params }: { params: { slug: str
                         </div>
                     </div>
                 } />
-            <div className={`my-10 w-full grid grid-cols-1 ${eventgallery.galleryUrls.length === 2 && 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"} gap-y-6 gap-x-6`}>
-                {eventgallery.galleryUrls.map((g: string, idx: number) => (
-                    <div key={idx} className="relative w-full h-[16rem]">
-                        <Image src={g} alt={g} className="object-contain w-full h-full rounded-lg" fill={true} />
-                    </div>
-                ))}
-            </div>
+            <Photos length={eventgallery.galleryUrls.length} urls={eventgallery.galleryUrls} />
         </main>
     )
 }
