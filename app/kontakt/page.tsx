@@ -36,7 +36,7 @@ export default async function Kontakt() {
                                 <div className='h-4'>
                                     <h3 className='text-lg font-bold tracking-wide'>{s.jmeno}</h3>
                                 </div>
-                                <div className='w-full grid grid-cols-3'>
+                                <div className='w-full grid grid-cols-1 md:grid-cols-3'>
                                     <div className='w-full grid justify-items-center grid-cols-1 p-4 space-y-4'>
                                         <Mail className='text-amber-400' width={48} height={48} />
                                         <span className='text-xl'>Email</span>
