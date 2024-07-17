@@ -3,6 +3,7 @@ import React from "react";
 export type EventType = "Koncerty" |"Plesy" |"Taneční kurzy" |"Výstavy/Prodejní akce" |"Stolní tenis";
 type PositionType = "Obrázek vlevo" | "Text vlevo"; 
 type FontColor = "black" | "white";
+export type emailType = "newsletter" | "contact"
 
 export interface Plany {
     koncertni_plany: string[];

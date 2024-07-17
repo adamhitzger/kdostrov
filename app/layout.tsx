@@ -69,7 +69,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("bg-black text-white", inter.className)}>
-
         {draftMode().isEnabled && (
           <div>
             <a className="p-2 bg-blue-300 block" href="/api/disable-draft">
@@ -80,8 +79,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <NewsletterForm />
-        <section className="flex flex-col space-y-5">
-          <h2 className="text-center text-xl font-bold">Sponzoři</h2>
+        <section className="flex flex-col space-y-5 px-10 lg:px-20">
+          <h2 className="text-center text-3xl font-bold">Sponzoři</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {sponsors.map((s: Sponsors, idx: number) => (
               <Link key={idx} href={s.link}>

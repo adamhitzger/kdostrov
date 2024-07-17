@@ -1,15 +1,17 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useState, useTransition, useRef } from 'react';
+import { RefObject, useState, useTransition, useRef } from 'react';
 import { Input } from '@/components/ui/input';
 import { SocialIcon } from 'react-social-icons/component'
 import { SocialList } from "@/sanity/lib/interfaces";
 import 'react-social-icons/facebook'
 import 'react-social-icons/instagram'
-import { sendNewsletter } from "../lib/actions";
+import { newsletter } from "@/app/actions";
+import { useFormStatus } from "react-dom";
 
 export default function NewsletterForm() {
-    const formRef = useRef<HTMLFormElement>(null);
+    const { pending } = useFormStatus();
+    const formRef: RefObject<HTMLFormElement> = useRef<HTMLFormElement>(null);
     const icons: SocialList[] = [
         {
             icon: "instagram",
@@ -28,14 +30,20 @@ export default function NewsletterForm() {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
     }
+    const sendNewsletter = (formData: FormData) => {
+        startTransition(async () => {
+            await newsletter(formData, "newsletter");
+        })
+
+    }
     return (
         <section className="grid grid-cols-1 gap-y-4 w-full my-20 place-items-center">
             <div className="w-full lg:w-1/2 space-y-4 border border-white py-10 px-4 text-center">
                 <h2 className="text-3xl font-semibold tracking-wide ">Přihlašte se k newsletteru!</h2>
                 <h3 className="text-lg ">Budeme Vás informovat o nadcházejících událostech, slevách atd.</h3>
                 <form className="flex flex-row gap-x-2  font-semibold " ref={formRef} action={sendNewsletter}>
-                    <Input className="bg-white text-black text-base tracking-wider border border-white" name="email" placeholder="Zadejte email" defaultValue={form.email} type="email" disabled={isPending} onChange={handleChange} required />
-                    <Button className="my-0" variant="outline" disabled={isPending}>{isPending ? "Odesílám" : "Odeslat"}</Button>
+                    <Input className="bg-white text-black text-base tracking-wider border border-white" name="email" placeholder="Zadejte email" defaultValue={form.email} type="email" disabled={pending} onChange={handleChange} required />
+                    <Button className="my-0" variant="outline" disabled={pending}>{pending ? "Odesílám" : "Odeslat"}</Button>
                 </form>
             </div>
             <div className="w-full lg:w-1/2 space-y-4 border border-white py-10">
