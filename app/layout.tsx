@@ -79,7 +79,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <NewsletterForm />
-        <section className="flex flex-col space-y-5 px-10 lg:px-20">
+        <section className="flex flex-col space-y-5 px-20 lg:px-30">
           <h2 className="text-center text-3xl font-bold">Sponzoři</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {sponsors.map((s: Sponsors, idx: number) => (
