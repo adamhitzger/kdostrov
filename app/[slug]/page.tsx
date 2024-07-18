@@ -24,10 +24,11 @@ export default async function EventPage({ params }: { params: { slug: string } }
 
                 </div>
             </section>
-            <section className="text-center text-black text-4xl font-bold tracking-wider py-10">
-                <span>{`${event.name} ${event.time}`}</span>
+            <section className="py-10">
+                <h1 className="text-center text-black text-4xl font-bold tracking-wider ">{`${event.name} ${event.time}`}</h1>
+
+                <SlugSection text={event.text} rsText={event.reservation_text} url={event.eventUrl} reenio={event.reenioUrl} />
             </section>
-            <SlugSection text={event.text} rsText={event.reservation_text} url={event.eventUrl} reenio={event.reenioUrl} />
         </main>
     );
 }

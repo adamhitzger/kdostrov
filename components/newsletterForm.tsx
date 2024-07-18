@@ -11,7 +11,7 @@ import { useFormStatus } from "react-dom";
 
 export default function NewsletterForm() {
     const { pending } = useFormStatus();
-    const formRef: RefObject<HTMLFormElement> = useRef<HTMLFormElement>(null);
+    const formRef: RefObject<HTMLFormElement> = useRef<HTMLFormElement>(null!);
     const icons: SocialList[] = [
         {
             icon: "instagram",
@@ -22,7 +22,6 @@ export default function NewsletterForm() {
             link: "https://www.facebook.com/kdostrov/?locale=cs_CZ"
         }
     ]
-    const [isPending, startTransition] = useTransition();
     const [form, setForm] = useState({
         email: "",
     });
@@ -30,12 +29,10 @@ export default function NewsletterForm() {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
     }
-    const sendNewsletter = (formData: FormData) => {
-        startTransition(async () => {
-            await newsletter(formData, "newsletter");
-        })
-
+    const sendNewsletter = async (formData: FormData) => {
+        await newsletter(formData, "newsletter");
     }
+
     return (
         <section className="grid grid-cols-1 gap-y-4 w-full my-20 place-items-center">
             <div className="w-full lg:w-1/2 space-y-4 border border-white py-10 px-4 text-center">
@@ -54,7 +51,7 @@ export default function NewsletterForm() {
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
 
     )
 }

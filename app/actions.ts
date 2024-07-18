@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { createTransport } from "nodemailer";
 import { redirect } from "next/navigation";
 import { emailType } from "@/sanity/lib/interfaces";
+import { RefObject } from "react";
 
 export async function newsletter(formData: FormData, emailType: emailType) {
     let fullname: string = "";
@@ -46,7 +47,7 @@ export async function newsletter(formData: FormData, emailType: emailType) {
               
   
             } else {
-              console.log("Success")
+              console.log("Success");
               revalidatePath('/', 'page');
             }
           });

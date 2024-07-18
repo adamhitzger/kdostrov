@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 export default function Photos({ urls, length }: { urls: string[], length: number }) {
     const [selectedId, setSelectedId] = useState<string>("");
     console.log(selectedId)
     return (
+
         <motion.div className={`my-10 w-full grid grid-cols-2 ${length === 2 && 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"} gap-y-6 gap-x-6`}>
+
             {urls.map((g: string, idx: number) => (
                 <motion.div
                     key={idx}
@@ -19,6 +21,7 @@ export default function Photos({ urls, length }: { urls: string[], length: numbe
                     transition={{ duration: 0.3 }}
                 >
                     <Image src={g} alt={g} className="object-contain w-full h-full rounded-lg" fill={true} />
+
                 </motion.div>
             ))}
 
