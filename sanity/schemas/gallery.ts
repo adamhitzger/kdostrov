@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 
 export const galleryType = defineType({
     name: "gallery",
-    title: "Galerie koncertů",
+    title: "Galerie",
     type: "document",
     fields: [
         defineField({
@@ -22,6 +22,15 @@ export const galleryType = defineType({
             name: "date",
             title: "Datum koncertu",
             type: "date",
+        }),
+        defineField({
+            name:"section",
+            title:"Sekce na stánce",
+            type:"string",
+            options: {
+                list: ["Ukázky", "Koncerty"],
+                layout:"radio",
+            }
         }),
         defineField({
             name: "time",

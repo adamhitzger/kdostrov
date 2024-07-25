@@ -8,6 +8,8 @@ export type emailType = "newsletter" | "contact"
 export interface Plany {
     koncertni_plany: string[];
     zasedaci_plany: string[];
+    eventLinks: any;
+    plesLinks: any;
 }
 
 export interface EquipmentInt {

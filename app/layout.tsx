@@ -79,19 +79,19 @@ export default function RootLayout({
         <Navbar />
         {children}
         <NewsletterForm />
-        <section className="flex flex-col space-y-5 px-20 lg:px-30">
-          <h2 className="text-center text-3xl font-bold">Sponzoři</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <section className="flex flex-col bg-white space-y-5 px-20 lg:px-30 py-10">
+          <h2 className="text-center text-4xl font-bold text-black ">Sponzoři</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-y-8 py-10">
             {sponsors.map((s: Sponsors, idx: number) => (
               <Link key={idx} href={s.link}>
-                <div className="relative w-full h-32">
+                <div className="relative w-full h-20">
                   <Image src={`/sponzors${s.img}`} alt={s.img} fill={true} className="bg-cover object-contain" />
                 </div>
               </Link>
             ))}
           </div>
         </section>
-        <section className="flex w-full relative h-28 px-10 my-10">
+        <section className="flex w-full relative h-28 px-10 my-10 ">
           <Link href={"https://web.thepay.cz"} rel="noopener" target="_blank">
             <Image src={"https://gate.thepay.cz/img/thepay-v2-210726-transparent.svg?pid=19"} alt={"https://gate.thepay.cz/img/thepay-v2-210726-transparent.svg?pid=19"} fill={true} className="bg-cover object-contain" />
           </Link>

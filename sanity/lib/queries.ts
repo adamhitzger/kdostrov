@@ -5,6 +5,8 @@ import { groq } from "next-sanity";
 export const PLANS_QUERY = groq`*[_type == 'plans']{
     "koncertni_plany": eventPlans[].asset->url,
     "zasedaci_plany": seatPlans[].asset->url,
+    eventLinks,
+    plesLinks
 }`;
 
 export const EQUIPMENT_QUERY = groq`*[_type == 'equipment'] | order(poradi asc) {
@@ -33,7 +35,15 @@ export const GALLERY_QUERY = groq`*[_type == 'gallery' && slug.current == $slug]
     "galleryUrls": gallery[].asset->url,
 }`;
 
-export const GALLERIES_QUERY = groq`*[_type == 'gallery'] | order(date desc){
+export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty'] | order(date desc){
+    name,
+    "slug": slug.current,
+    date,
+    time,
+    "photo": image.asset->url,
+}`;
+
+export const SHOW_QUERY = groq`*[_type == 'gallery' && section == 'Ukázka'] | order(date desc){
     name,
     "slug": slug.current,
     date,

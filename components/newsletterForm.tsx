@@ -8,6 +8,7 @@ import 'react-social-icons/facebook'
 import 'react-social-icons/instagram'
 import { newsletter } from "@/app/actions";
 import { useFormStatus } from "react-dom";
+import Link from "next/link";
 
 export default function NewsletterForm() {
     const { pending } = useFormStatus();
@@ -47,7 +48,9 @@ export default function NewsletterForm() {
                 <h2 className="text-xl font-semibold tracking-wide text-center">Spojte se s námi</h2>
                 <div className=" flex w-full py-5 justify-around">
                     {icons.map((i: SocialList, idx: number) => (
-                        <SocialIcon key={idx} network={i.icon} url={i.link} style={{ height: "4rem", width: "4rem" }} as="div" bgColor="white" fgColor="transparent" />
+                        <Link key={idx} href={i.link}>
+                            <SocialIcon network={i.icon} url={i.link} style={{ height: "4rem", width: "4rem" }} as="div" bgColor="white" fgColor="transparent" />
+                        </Link>
                     ))}
                 </div>
             </div>

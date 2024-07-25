@@ -14,12 +14,28 @@ export const planyType = defineType({
             ]
         }),
         defineField({
+            name: "eventLinks",
+            title: "Odkazy na koncertní zas. plány",
+            type: "array",
+            of: [
+                {type: "block"}
+            ]
+        }),
+        defineField({
             name: "seatPlans",
-            title: "Zasedací plány",
+            title: "Plesové zasedací plány",
             type: "array",
             of: [
                 {type: "image"}
             ]
-        })
+        }),
+        defineField({
+            name: "plesLinks",
+            title: "Odkazy na plesové zas. plány",
+            type: "array",
+            of: [
+                {type: "block"}
+            ]
+        }),
     ]
 })
