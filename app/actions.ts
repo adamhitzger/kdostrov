@@ -2,12 +2,12 @@
 
 import { revalidatePath } from "next/cache";
 import { createTransport } from "nodemailer";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { emailType } from "@/sanity/lib/interfaces";
 import { RefObject } from "react";
 
 export async function newsletter(formData: FormData, emailType: emailType) {
-    let fullname: string = "";
+  let fullname: string = "";
     let phone: string = "";
     let email: string = "";
     let ltd: string = "";
@@ -37,23 +37,10 @@ export async function newsletter(formData: FormData, emailType: emailType) {
       subject: emailType === "newsletter" ? "Newsletter" : "Kontakt",
       text: emailType == "newsletter" ? `${email}` : `${fullname}, ${phone}, ${email}, ${ltd}, ${msg}` ,
     };
-  
-    async function asyncSendMail(){
-      return new Promise(() =>{
-        transporter.sendMail(mailOptions,
-          function (error: any, info: any) {
-            if (error) {
-              console.log(error)
-              
-  
-            } else {
-              console.log("Success");
-              revalidatePath('/', 'page');
-            }
-          });
-      });
+
+    try{
+      await  transporter.sendMail(mailOptions);  
+    }catch(error){
+      console.log(error);
     }
-  
-    return await asyncSendMail();
-    
   }

@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState, useTransition } from 'react'
+import React, { useRef, useState, useTransition } from 'react'
 import { Button } from './ui/button';
 import { newsletter } from '@/app/actions';
+import { useRouter } from 'next/navigation';
 
 export default function ContactForm() {
+    const router = useRouter();
+    const formref = useRef<HTMLFormElement>(null);
     const [isPending, startTransition] = useTransition();
     const [form, setForm] = useState({
         fullname: "",
@@ -19,14 +22,19 @@ export default function ContactForm() {
         setForm({ ...form, [name]: value })
     };
 
-    const sendNewsletter = (formData: FormData) => {
-        startTransition(async () => {
-            await newsletter(formData, "contact");
+    const sendNewsletter = async (formData: FormData) => {
+        await newsletter(formData, "contact");
+        setForm({
+            fullname: "",
+            email: "",
+            phone: "",
+            ltd: "",
+            msg: "",
         })
     }
     return (
         <>
-            <form className='w-full' action={sendNewsletter}>
+            <form className='w-full' ref={formref} action={sendNewsletter}>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <div className="text-2xl my-5 space-y-5">
                         <div>
