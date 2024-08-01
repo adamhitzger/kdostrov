@@ -1,10 +1,51 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { createTransport } from "nodemailer";
 import { redirect, useRouter } from "next/navigation";
-import { emailType } from "@/sanity/lib/interfaces";
-import { RefObject } from "react";
+import { emailType, EventCard } from "@/sanity/lib/interfaces";
+import { groq } from "next-sanity";
+import { sanityFetch } from "@/sanity/lib/fetch";
+
+export async function getEvents(params: string){
+  let filter: string = "";
+
+  switch(params){
+    case "koncerty":
+      filter = "Koncerty"
+      break;
+      case "plesy":
+        filter = "Plesy"
+        break;  
+        case "kurzy":
+          filter = "Taneční kurzy"
+          break;
+          case "vystavy":
+      filter = "Výstavy/Prodejní akce"
+      break;
+      case "stolnitenis":
+      filter = "Stolní tenis"
+      break;
+      }
+
+     const FILTERED_EVENTS_QUERY = groq`*[_type == 'event' && eventType == '${filter}'] | order(date asc) {
+        name,
+        "slug": slug.current,
+        "photo": picture.asset->url,
+        price,
+        date,
+        time,
+        eventType,
+    }`;
+    try{
+      const result = await sanityFetch<EventCard[]>({query: FILTERED_EVENTS_QUERY})
+      return {
+        result
+      };
+    }catch(error){
+      console.error(error);
+      throw error;
+    }
+}
 
 export async function newsletter(formData: FormData, emailType: emailType) {
   let fullname: string = "";

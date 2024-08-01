@@ -14,11 +14,21 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "KD Ostrov",
-  description: "Kulturní dům Ostrov Havlíčkův Brod.",
   icons: {
-    icon: "/ostrov.jpg"
+    icon: "/sponzors/image.png"
+  },
+  applicationName: "KD Ostrov",
+  generator: "Next.ts",
+  keywords: ["Kulturní dům Ostrov Havlíčkův Brod", "Kulturní dům", "Havlíčkův Brod", "Kulturní dům Havlíčkův Brod", "Ostrov", "Havlíčkův Brod Ostrov", "Plesy", "Stolení tenis", "Výstavy", "Koncerty", "Taneční Havlíčkův Brod"],
+  openGraph: {
+    title: "KD Ostrov",
+    description: "Kulturní dům Ostrov Havlíčkův Brod. můžete nás navštívit na adrese Na Ostrově 28/3, Havlíčkův Brod - vstup hlavním vchodem z ulice Žižkova, kacelář v 1. patře. Pořádájí se tu koncerty, plesy, taneční kurzy, výstavy či stolní tenis.",
+    url: "https://www.kdostrov.cz",
+    siteName: "Kulturní dům Ostrov Havlíčkův Brod",
+    locale: "cs_CZ",
+    type: "website"
   }
+
 };
 
 
@@ -93,11 +103,11 @@ export default function RootLayout({
         </section>
         <section className="flex w-full relative h-28 px-10 my-10 ">
           <Link href={"https://web.thepay.cz"} rel="noopener" target="_blank">
-            <Image src={"https://gate.thepay.cz/img/thepay-v2-210726-transparent.svg?pid=19"} alt={"https://gate.thepay.cz/img/thepay-v2-210726-transparent.svg?pid=19"} fill={true} className="bg-cover object-contain" />
+            <Image src={"https://gate.thepay.cz/img/thepay-v2-210726-transparent.svg?pid=19"} alt={"Platby KD Ostrov fungují přes thepay.cz"} fill={true} className="bg-cover object-contain" />
           </Link>
         </section>
         <section className="flex w-full relative h-64 px-10 my-10">
-          <Image src={"/sponzors/mjplayas.jpg"} alt={"/sponzors/mjplayas.jpg"} fill={true} className="bg-cover object-contain" />
+          <Image src={"/sponzors/mjplayas.jpg"} alt={"Dotace EU "} fill={true} className="bg-cover object-contain" />
 
         </section>
         {draftMode().isEnabled && <VisualEditing />}

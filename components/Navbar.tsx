@@ -27,7 +27,6 @@ export default function Navbar() {
             route: "/fotogalerie",
             label: "Fotogalerie"
         },
-
         {
             route: "/vybaveni",
             label: "Technické vybavení",
