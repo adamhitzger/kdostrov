@@ -19,7 +19,7 @@ function Slide({ image, name, date, price, time, slug }: { image: string, name: 
                 {date ? <span>{` ${time}`}</span> : null}<br />
                 <div className="text-base lg:text-xl border-white border-2 flex justify-between p-1 ">
                     <span>Vstupenky od</span><br />
-                    {price ? <span>{price + "Kč"}</span> : null}<br />
+                    {price ? <span>{price + " Kč"}</span> : null}<br />
                 </div>
                 <Link href={`${slug}`}>
                     <Button size={"lg"} variant={"outline"}>O akci</Button>

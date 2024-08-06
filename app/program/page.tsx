@@ -7,17 +7,18 @@ import Image from "next/image";
 import React from 'react'
 import { sanityFetch } from '@/sanity/lib/fetch';
 import { getColors } from "@/lib/utils";
-import { getEvents } from "../actions";
+import { getAllEvents, getEvents } from "../actions";
 import Filters from "@/components/Filters";
 
 export default async function Program({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
     let query;
     if (searchParams?.filter) {
         query = await getEvents(searchParams.filter);
-    } else {
-        query = await getEvents("koncerty");
+    } else if (!searchParams?.filter) {
+        query = await getAllEvents();
     }
-    const events = query;
+
+    console.log(searchParams)
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-10 text-white">
             <Filters />
@@ -25,21 +26,22 @@ export default async function Program({ searchParams }: { searchParams: { [key: 
                 <div className="w-fit my-10 lg:my-20">
                     <h2 className="text-5xl font-bold tracking-wide">Celý program</h2>
                 </div>
-                {query.result.map((e: EventCard, idx: number) => (
-                    <div key={idx} className="flex flex-row items-center border-t-2 border-white pt-4 w-full justify-between ">
-                        <Image src={e.photo} alt={e.photo} width={150} height={150} />
-                        <div className="hidden sm:flex flex-col ml-6 md:my-0 content-start w-full space-y-6">
-                            <Badge className={`w-fit ${getColors(e.eventType)}`}>{e.eventType}</Badge>
-                            <div className="text-xl text-left">
-                                <span>{`${e.name}`}</span><br />
-                                <span>{` ${e.time}`}</span>
+                {query &&
+                    query.result.map((e: EventCard, idx: number) => (
+                        <div key={idx} className="flex flex-row items-center border-t-2 border-white pt-4 w-full justify-between ">
+                            <Image src={e.photo} alt={e.photo} width={150} height={150} />
+                            <div className="hidden sm:flex flex-col ml-6 md:my-0 content-start w-full space-y-6">
+                                <Badge className={`w-fit bg-amber-400`}>{e.eventType}</Badge>
+                                <div className="text-xl text-left">
+                                    <span>{`${e.name}`}</span><br />
+                                    <span>{` ${e.time}`}</span>
+                                </div>
                             </div>
+                            <Link href={`${e.slug}`}>
+                                <Button size={"lg"} variant={"outline"}>O akci</Button>
+                            </Link>
                         </div>
-                        <Link href={`${e.slug}`}>
-                            <Button size={"lg"} variant={"outline"}>O akci</Button>
-                        </Link>
-                    </div>
-                ))}
+                    ))}
 
             </section>
         </main>

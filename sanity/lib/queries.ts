@@ -43,7 +43,7 @@ export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty
     "photo": image.asset->url,
 }`;
 
-export const SHOW_QUERY = groq`*[_type == 'gallery' && section == 'Ukázka'] | order(date desc){
+export const SHOW_QUERY = groq`*[_type == 'gallery' && section == 'Ukázky'] | order(date desc){
     name,
     "slug": slug.current,
     date,

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   applicationName: "KD Ostrov",
   generator: "Next.ts",
-  keywords: ["Kulturní dům Ostrov Havlíčkův Brod", "Kulturní dům", "Havlíčkův Brod", "Kulturní dům Havlíčkův Brod", "Ostrov", "Havlíčkův Brod Ostrov", "Plesy", "Stolení tenis", "Výstavy", "Koncerty", "Taneční Havlíčkův Brod"],
+  keywords: ["Kulturní dům Ostrov Havlíčkův Brod", "KD Ostrov", "Předprodej", "Vstupenky", "Kulturní dům", "Havlíčkův Brod", "Kulturní dům Havlíčkův Brod", "Ostrov", "Havlíčkův Brod Ostrov", "Plesy", "Stolení tenis", "Výstavy", "Koncerty", "Taneční Havlíčkův Brod"],
   openGraph: {
     title: "KD Ostrov",
     description: "Kulturní dům Ostrov Havlíčkův Brod. můžete nás navštívit na adrese Na Ostrově 28/3, Havlíčkův Brod - vstup hlavním vchodem z ulice Žižkova, kacelář v 1. patře. Pořádájí se tu koncerty, plesy, taneční kurzy, výstavy či stolní tenis.",

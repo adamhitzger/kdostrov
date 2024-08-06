@@ -6,7 +6,6 @@ import { newsletter } from '@/app/actions';
 import { useRouter } from 'next/navigation';
 
 export default function ContactForm() {
-    const router = useRouter();
     const formref = useRef<HTMLFormElement>(null);
     const [isPending, startTransition] = useTransition();
     const [form, setForm] = useState({

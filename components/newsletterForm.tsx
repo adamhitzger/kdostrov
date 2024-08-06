@@ -11,7 +11,6 @@ import { useFormStatus } from "react-dom";
 import Link from "next/link";
 
 export default function NewsletterForm() {
-    const { pending } = useFormStatus();
     const formRef: RefObject<HTMLFormElement> = useRef<HTMLFormElement>(null!);
     const icons: SocialList[] = [
         {
@@ -32,6 +31,9 @@ export default function NewsletterForm() {
     }
     const sendNewsletter = async (formData: FormData) => {
         await newsletter(formData, "newsletter");
+        setForm({
+            email: "",
+        })
     }
 
     return (
@@ -40,8 +42,8 @@ export default function NewsletterForm() {
                 <h2 className="text-3xl font-semibold tracking-wide ">Přihlašte se k newsletteru!</h2>
                 <h3 className="text-lg ">Budeme Vás informovat o nadcházejících událostech, slevách atd.</h3>
                 <form className="flex flex-row gap-x-2  font-semibold " ref={formRef} action={sendNewsletter}>
-                    <Input className="bg-white text-black text-base tracking-wider border border-white" name="email" placeholder="Zadejte email" defaultValue={form.email} type="email" disabled={pending} onChange={handleChange} required />
-                    <Button className="my-0" variant="outline" disabled={pending}>{pending ? "Odesílám" : "Odeslat"}</Button>
+                    <input className="bg-white text-black text-base tracking-wider border border-white w-full px-2" name="email" placeholder="Zadejte email" value={form.email} type="email" onChange={handleChange} required />
+                    <Button className="my-0" variant="outline" >{false ? "Odesílám" : "Odeslat"}</Button>
                 </form>
             </div>
             <div className="w-full lg:w-1/2 space-y-4 border border-white py-10">

@@ -7,8 +7,8 @@ import { components } from "@/sanity/lib/components";
 export default function TextWithImage({ text, url, position, isDynamic, node, color }: TextWithImageSection) {
     return (
         <section
-            className={`flex ${position === "Obrázek vlevo" ? "flex-wrap-reverse" : "flex-wrap"} md:flex-nowrap ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"}  2xl:p-20 h-max`}>
-            <div className="w-full md:w-1/2 h-full flex flex-col px-4">
+            className={`flex ${position === "Obrázek vlevo" ? "flex-wrap-reverse" : "flex-wrap"} md:flex-nowrap ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"}  2xl:p-20 h-max gap-x-5`}>
+            <div className="w-full md:w-1/2 h-full flex flex-col p-4">
                 <div className={`text-${!color ? "black" : color} flex flex-col h-full items-center text-xl leading-8 `}>
                     {node ? node : null}
                     {isDynamic && text ? (text ? <PortableText

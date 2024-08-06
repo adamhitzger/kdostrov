@@ -19,7 +19,7 @@ export default async function EventPage({ params }: { params: { slug: string } }
                     {event.podnadpis ? <span className="text-xl">{event.podnadpis}</span> : null}<br />
                     <div className="text-xl border-white border-2 flex justify-between p-1">
                         <span>Vstupenky od</span>
-                        {event.price ? <span>{event.price + "Kč"}</span> : null}<br />
+                        {event.price ? <span>{event.price + " Kč"}</span> : null}<br />
                     </div>
 
                 </div>
