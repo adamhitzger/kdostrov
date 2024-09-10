@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { EventCard, GalleryCard, StaffQuery } from "@/sanity/lib/interfaces";
-import { CAROUSEL_QUERY, GALLERY_MAINPAGE_QUERY, STAFF_QUERY } from "@/sanity/lib/queries";
+import { CAROUSEL_QUERY, EVENTS_QUERY, GALLERY_MAINPAGE_QUERY, STAFF_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import Link from "next/link";
 import ImageSlider from "@/components/imageSlider";
@@ -31,7 +31,7 @@ export default async function Home() {
           <div key={idx} className="flex flex-row items-center border-t-2 border-white pt-4 w-full justify-between ">
             <Image src={e.photo} alt={e.photo} width={150} height={150} />
             <div className="hidden sm:flex flex-col ml-6 md:my-0 content-start w-full space-y-6">
-              <Badge className={`w-fit ${getColors(e.eventType)}`}>{e.eventType}</Badge>
+              <Badge className={`w-fit bg-amber-400`}>{e.eventType}</Badge>
               <div className="text-xl text-left">
                 <span>{`${e.name}`}</span><br />
                 <span>{` ${e.time}`}</span>
