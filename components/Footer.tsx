@@ -13,7 +13,7 @@ export default function Footer() {
                 </div>
                 <div className='grid grid-cols-3 py-4 border-t-2 border-white'>
                     <span>&copy; {year} Developed by <Link href="https://www.linkedin.com/in/adam-hitzger-aa518622b/?originalSubdomain=cz" className="underline underline-offset-2">Adam Hitzger</Link></span>
-                    <Link href={"https://cdn.sanity.io/files/a3wdqcta/production/ca1f578665e51e3aa522c8b02012585d4d90fd1b.pdf"}>Všeobecné obchodní podmínky</Link>
+                    <Link href={"https://cdn.sanity.io/files/a3wdqcta/production/60bdde91818e33df7c9855da1c25a6267eb8d124.pdf"}>Všeobecné obchodní podmínky</Link>
                     <span className='place-self-end'><Link href={"#top"}>Nahoru</Link></span>
                 </div>
             </div>
