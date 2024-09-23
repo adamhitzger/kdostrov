@@ -52,12 +52,12 @@ export default function RootLayout({
       link: "https://www.pilsner-urquell.cz/",
     },
     {
-      img: "/rebel.png",
-      link: "https://www.hbrebel.cz/",
+      img: "/panskydum.png",
+      link: "https://www.hotelpanskydum.com/",
     },
     {
-      img: "/rengl.png",
-      link: "https://www.rengl.cz/cenik-havlickuv-brod",
+      img: "/arena.png",
+      link: "https://www.arenaapartmentshb.cz/",
     },
     {
       img: "/restaurant.png",
