@@ -13,7 +13,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 function Slide({ image, name, date, price, time, slug, shadow, height=false }: { image: string, name?: string; date?: string; price?: number, time?: string; slug?: { current: string }, shadow: boolean,height?: boolean }) {
     return (
-        <section className={`w-full relative ${height?"h-[32rem]":"h-full"} bg-cover flex z-10${shadow ? " before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]": null}`} style={{ backgroundImage: `url(${image})` }}>
+        <section className={`w-full relative ${height?"h-80 md:h-[32rem]":"h-full"} bg-cover flex z-10${shadow ? " before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]": null}`} style={{ backgroundImage: `url(${image})` }}>
             <div className="w-full leading-normal mt-10 lg:mt-64 2xl:my-72 space-y-4 lg:w-1/2 text-gray-200 font-bold texl-lg lg:text-5xl flex-col px-10 lg:px-20 py-10">
                 {name ? <span>{name}</span> : null}<br />
                 {date ? <span>{` ${time}`}</span> : null}<br />

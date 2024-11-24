@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { TextWithImageSection } from "@/sanity/lib/interfaces";

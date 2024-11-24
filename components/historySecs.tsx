@@ -19,7 +19,7 @@ export default function HistoryComp({ heading, text, textWithImageUrl,caption,  
                             {heading}
                         </h2>
                     )}
-                    <div className={`text-gray-700 ${heading ? "pt-5" : null} text-justify lg:text-center text-lg`}>
+                    <div className={`text-gray-700 ${heading ? "pt-5" : null} text-justify lg:text-center text-base md:text-lg`}>
                          <PortableText
                             value={text} components={components}
                         />
