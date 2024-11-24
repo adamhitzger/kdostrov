@@ -15,7 +15,7 @@ export default async function HistoryPage(){
             
             {h.sections.map((s: TextWithImageSectionHistory, id: number) => (
                 s._type === "textWithImage" && (
-                    <HistoryComp caption={s.caption} heading={s.heading} textWithImageUrl={s.textWithImageUrl} text={s.text} position={s.position} _type="textWithImage"/>
+                    <HistoryComp key={id} caption={s.caption} heading={s.heading} textWithImageUrl={s.textWithImageUrl} text={s.text} position={s.position} _type="textWithImage"/>
                 )
             ))}
             
