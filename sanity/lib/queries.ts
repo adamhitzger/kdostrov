@@ -26,13 +26,26 @@ export const STAFF_QUERY = groq`*[_type == 'staff'][0] {
       },
     }
 }`;
-
+export const HISTORY_QUERY = groq`*[_type == 'history'][0]{
+    sections[]{
+      _type == "textWithImage" => {
+        _type,
+        "textWithImageUrl": image.asset->url,
+        heading,
+        text,
+        position,
+        caption
+      }
+      },
+    "galleryUrls": gallery[].asset->url,  
+}`;
 export const GALLERY_QUERY = groq`*[_type == 'gallery' && slug.current == $slug][0]{
     name,
     "slug": slug.current,
     eventType,
     "photo": image.asset->url,
     "galleryUrls": gallery[].asset->url,
+    seo,
 }`;
 
 export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty'] | order(date desc){

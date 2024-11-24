@@ -11,6 +11,11 @@ export const galleryType = defineType({
             type: "string",
         }),
         defineField({
+            name: "seo",
+            title: "Popisek pro porhlížeče",
+            type: "string",
+        }),
+        defineField({
             name: "slug",
             title: "Url adresa",
             type: "slug",

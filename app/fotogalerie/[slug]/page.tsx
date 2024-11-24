@@ -3,7 +3,69 @@ import TextWithImage from "@/components/textWithImage";
 import { sanityFetch } from "@/sanity/lib/fetch"
 import { Gallery } from "@/sanity/lib/interfaces"
 import { GALLERY_QUERY } from "@/sanity/lib/queries";
-
+import { ResolvingMetadata, Metadata } from "next";
+export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
+    const e = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params });
+    
+    return{
+        icons: {
+            icon: "/sponzors/image.png"
+          },
+          title:`Kulturní dům Ostrov havlíčkův Brod - ${e.name}`,
+          applicationName: "KD Ostrov",
+          generator: "Next.ts",
+          authors: [{name: "Adam Hitzger"}],
+          description: e.seo
+          ,keywords: ["Kulturní dům Ostrov Havlíčkův Brod", "KD Ostrov", "Předprodej", "Vstupenky", "Kulturní dům", "Havlíčkův Brod", "Kulturní dům Havlíčkův Brod", "Ostrov", "Havlíčkův Brod Ostrov", "Plesy", "Stolení tenis", "Výstavy", "Koncerty", "Taneční Havlíčkův Brod"],
+          creator: "Adam Hitzger",
+                publisher: "Adam Hitzger",
+                formatDetection: {
+                    email: false,
+                    address: false,
+                    telephone: false,
+                  },
+          openGraph: {
+            title: e.name,
+            description: e.seo,
+            url: `https://www.kdostrov.cz/fotogalerie/${e.slug}`,
+            siteName: "Kulturní dům Ostrov Havlíčkův Brod",
+            locale: "cs_CZ",
+            type: "website",
+            images: [
+                {
+                    url: e.photo,
+                    width: 800,
+                    height: 600
+                },
+                {
+                    url: e.galleryUrls[0],
+                    width: 800,
+                    height: 600
+                },
+                {
+                    url: e.galleryUrls[1],
+                    width: 800,
+                    height: 600
+                },
+                {
+                    url: e.galleryUrls[2],
+                    width: 800,
+                    height: 600
+                },
+                {
+                    url: e.galleryUrls[3],
+                    width: 800,
+                    height: 600
+                },
+                {
+                    url: e.galleryUrls[4],
+                    width: 800,
+                    height: 600
+                },
+            ]
+          }
+    }
+}
 export default async function EventGalleryPage({ params }: { params: { slug: string } }) {
     const eventgallery = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params });
     console.log(eventgallery)

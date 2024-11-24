@@ -36,6 +36,10 @@ export default function Navbar() {
             label: "Zasedací plány",
         },
         {
+            route: "/history",
+            label: "Historie",
+        },
+        {
             route: "/kontakt",
             label: "Kontakt",
         },
@@ -52,7 +56,7 @@ export default function Navbar() {
                     alt="Logo"
                 />
             </Link>
-            <ul className="list-none sm:flex hidden justify-end items-center flex-1 px-10">
+            <ul className="list-none lg:flex hidden justify-end items-center flex-1 px-10">
                 {navLinks.map((nav, index) => (
                     <li
                         key={index}

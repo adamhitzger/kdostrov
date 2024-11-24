@@ -30,6 +30,15 @@ export type Staffs ={
     funkce: string;
 }
 
+export interface TextWithImageSectionHistory {
+    _type: "textWithImage" | undefined;
+    textWithImageUrl: string;
+    heading: string | undefined;
+    text: any;
+    caption: string;
+    position: PositionType;
+  };
+
 export interface Gallery {
     name: string;
     slug: {
@@ -38,7 +47,13 @@ export interface Gallery {
     date: string;
     photo: string;
     galleryUrls: string[];
-    eventType: EventType
+    eventType: EventType,
+    seo: string
+}
+
+export interface History {
+    sections: TextWithImageSectionHistory[],
+    galleryUrls: string[]
 }
 
 export interface GalleryCard {

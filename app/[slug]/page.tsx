@@ -1,11 +1,45 @@
 import SlugSection from "@/components/SlugSection";
-import TextWithImage from "@/components/textWithImage";
-import { Button } from "@/components/ui/button";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { EventInterface } from "@/sanity/lib/interfaces";
 import { EVENT_QUERY } from "@/sanity/lib/queries";
-import Link from "next/link";
-
+import {  Metadata } from "next";
+export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
+    const e = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params })
+    
+    return{
+        icons: {
+            icon: "/sponzors/image.png"
+          },
+          title:`Kulturní dům Ostrov Havlíčkův Brod - ${e.name}`,
+          applicationName: "KD Ostrov",
+          generator: "Next.ts",
+          authors: [{name: "Adam Hitzger"}],
+          description: e.podnadpis
+          ,keywords: ["Kulturní dům Ostrov Havlíčkův Brod", "KD Ostrov", "Předprodej", "Vstupenky", "Kulturní dům", "Havlíčkův Brod", "Kulturní dům Havlíčkův Brod", "Ostrov", "Havlíčkův Brod Ostrov", "Plesy", "Stolení tenis", "Výstavy", "Koncerty", "Taneční Havlíčkův Brod"],
+          creator: "Adam Hitzger",
+                publisher: "Adam Hitzger",
+                formatDetection: {
+                    email: false,
+                    address: false,
+                    telephone: false,
+                  },
+          openGraph: {
+            title: e.name,
+            description: e.podnadpis,
+            url: `https://www.kdostrov.cz/${e.slug}`,
+            siteName: "Kulturní dům Ostrov Havlíčkův Brod",
+            locale: "cs_CZ",
+            type: "website",
+            images: [
+                {
+                    url: e.photo,
+                    width: 800,
+                    height: 600
+                }
+            ]
+          }
+    }
+}
 export default async function EventPage({ params }: { params: { slug: string } }) {
     const event = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params })
     console.log(event);

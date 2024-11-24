@@ -17,12 +17,22 @@ export const metadata: Metadata = {
   icons: {
     icon: "/sponzors/image.png"
   },
+  title:"Kulturní dům Ostrov havlíčkův Brod",
   applicationName: "KD Ostrov",
   generator: "Next.ts",
+  authors: [{name: "Adam Hitzger"}],
+  description: "Kulturní dům Ostrov v Havlíčkově Brodě je moderní multifunkční prostor určený pro širokou škálu kulturních, společenských a sportovních akcí. Pořádají se zde nezapomenutelné koncerty známých kapel, elegantní plesy s bohatým programem, divadelní představení, výstavy a přehlídky. Milovníci sportu ocení možnost zahrát si stolní tenis, zatímco mladší generace se může těšit na zábavné akce a programy zaměřené na mládež. Kulturní dům Ostrov je místem, kde se setkávají lidé všech generací, aby si užili atmosféru společenského života a kulturního vyžití. Díky své strategické poloze v Havlíčkově Brodě je ideální volbou pro obyvatele i návštěvníky města.",
   keywords: ["Kulturní dům Ostrov Havlíčkův Brod", "KD Ostrov", "Předprodej", "Vstupenky", "Kulturní dům", "Havlíčkův Brod", "Kulturní dům Havlíčkův Brod", "Ostrov", "Havlíčkův Brod Ostrov", "Plesy", "Stolení tenis", "Výstavy", "Koncerty", "Taneční Havlíčkův Brod"],
+  creator: "Adam Hitzger",
+        publisher: "Adam Hitzger",
+        formatDetection: {
+            email: false,
+            address: false,
+            telephone: false,
+          },
   openGraph: {
     title: "KD Ostrov",
-    description: "Kulturní dům Ostrov Havlíčkův Brod. můžete nás navštívit na adrese Na Ostrově 28/3, Havlíčkův Brod - vstup hlavním vchodem z ulice Žižkova, kacelář v 1. patře. Pořádájí se tu koncerty, plesy, taneční kurzy, výstavy či stolní tenis.",
+    description: "Kulturní dům Ostrov Havlíčkův Brod. můžete nás navštívit na adrese Na Ostrově 28/3, Havlíčkův Brod - vstup hlavním vchodem z ulice Žižkova, kacelář v 1. patře. Pořádájí se tu koncerty, plesy, taneční kurzy, výstavy či stolní tenis. Kulturní dům Ostrov v Havlíčkově Brodě je moderní multifunkční prostor určený pro širokou škálu kulturních, společenských a sportovních akcí. Pořádají se zde nezapomenutelné koncerty známých kapel, elegantní plesy s bohatým programem, divadelní představení, výstavy a přehlídky. Milovníci sportu ocení možnost zahrát si stolní tenis, zatímco mladší generace se může těšit na zábavné akce a programy zaměřené na mládež. Kulturní dům Ostrov je místem, kde se setkávají lidé všech generací, aby si užili atmosféru společenského života a kulturního vyžití. Díky své strategické poloze v Havlíčkově Brodě je ideální volbou pro obyvatele i návštěvníky města.",
     url: "https://www.kdostrov.cz",
     siteName: "Kulturní dům Ostrov Havlíčkův Brod",
     locale: "cs_CZ",
