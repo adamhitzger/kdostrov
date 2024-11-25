@@ -9,7 +9,7 @@ export default async function HistoryPage(){
     console.log(h)
     return(
         <main className="tracking-widest w-full flex flex-col min-h-screen px-10 lg:px-20 py-10  bg-white">
-                <h1 className={`text-4xl text-black text-center normal-case"}`}>
+                <h1 className={`text-4xl text-black text-center normal-case my-5`}>
                            Historie Kulurního domu Ostrov v Havlíčkůvově Brodě
                         </h1>
             

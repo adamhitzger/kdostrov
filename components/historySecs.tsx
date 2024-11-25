@@ -11,11 +11,11 @@ export default function HistoryComp({ heading, text, textWithImageUrl,caption,  
 
     return (
         <section
-            className={` flex flex-wrap lg:flex-nowrap border-b-2 border-b-slate-200  lg:min-h-fit  ${position === "Obrázek vlevo" ? "lg:flex-row-reverse" : "lg:flex-row"} `}>
+            className={` flex flex-wrap lg:flex-nowrap  lg:min-h-fit  ${position === "Obrázek vlevo" ? "lg:flex-row-reverse" : "lg:flex-row"} `}>
             <div className="w-full lg:w-1/2 flex flex-col  px-5  font-light">
                 <div className="flex flex-col w-full m-auto lg:px-10">
                     {heading && (
-                        <h2 className={`text-2xl  text-center normal-case"}`}>
+                        <h2 className={`text-2xl text-black text-center normal-case"}`}>
                             {heading}
                         </h2>
                     )}

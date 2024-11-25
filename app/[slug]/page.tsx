@@ -41,7 +41,7 @@ export async function generateMetadata({params}:{params: { slug: string}}):Promi
     }
 }
 export default async function EventPage({ params }: { params: { slug: string } }) {
-    const event = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params })
+    const event = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params })
     console.log(event);
 
     return (
