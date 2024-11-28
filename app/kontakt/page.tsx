@@ -19,7 +19,7 @@ export default async function Kontakt() {
                     <p>Na Ostrově 28/3, Havlíčkův Brod - vstup hlavním vchodem z ulice Žižkova, kacelář v 1. patře</p><br />
                     <span>Číslo účtu: 43-7970790287/0100</span>
                     <div className=''>
-                        <span>IČO: 26951444</span>
+                        <span>IČO: 26951444</span><br/>
                         <span>DIČ: CZ2651444</span>
                     </div>
                 </div>
