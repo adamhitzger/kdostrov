@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/sponzors/image.png"
   },
-  title:"Kulturní dům Ostrov havlíčkův Brod",
+  title:"Kulturní dům Ostrov Havlíčkův Brod",
   applicationName: "KD Ostrov",
   generator: "Next.ts",
   authors: [{name: "Adam Hitzger"}],

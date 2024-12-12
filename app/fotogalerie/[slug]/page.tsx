@@ -11,7 +11,7 @@ export async function generateMetadata({params}:{params: { slug: string}}):Promi
         icons: {
             icon: "/sponzors/image.png"
           },
-          title:`Kulturní dům Ostrov havlíčkův Brod - ${e.name}`,
+          title:`Kulturní dům Ostrov Havlíčkův Brod - ${e.name}`,
           applicationName: "KD Ostrov",
           generator: "Next.ts",
           authors: [{name: "Adam Hitzger"}],
