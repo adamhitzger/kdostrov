@@ -11,7 +11,7 @@ export default async function Kontakt() {
     console.log(kontakt)
     return (
         <main className='w-full flex flex-col space-y-10 py-20 px-10 lg:py-20 text-white'>
-            <section className='flex flex-wrap md:flex-nowrap bg-gray-900 w-full md:w-3/4 mx-auto rounded-[25px] p-3 lg:p-10 '>
+            <section className='flex flex-wrap md:flex-nowrap bg-gray-900 w-full md:w-3/4 mx-auto rounded-[25px] p-3 gap-y-4 md:gap-y-0 lg:p-10 md:gap-x-4 '>
                 <div className='w-full md:w-1/2 h-auto rounded-[25px] bg-black py-5 lg:p-10 px-2 space-y-4'>
                     <h1 className='texl-xl font-bold min-h-max'>Neváhejte nás kontaktovat</h1>
                     <hr className="bg-white w-full border-none text-white h-0.5" />
@@ -23,7 +23,7 @@ export default async function Kontakt() {
                         <span>DIČ: CZ2651444</span>
                     </div>
                 </div>
-                <div className='w-full md:w-1/2 h-full rounded-[25px] bg-white text-black py-5 px-2'>
+                <div className='w-full md:w-1/2  border-2 rounded-[25px] bg-white text-black py-5 px-2'>
                     <ContactForm />
                 </div>
             </section>
