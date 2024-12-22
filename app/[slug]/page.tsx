@@ -3,9 +3,9 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { EventInterface } from "@/sanity/lib/interfaces";
 import { EVENT_QUERY } from "@/sanity/lib/queries";
 import {  Metadata } from "next";
+
 export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
     const e = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params })
-    
     return{
         icons: {
             icon: "/sponzors/image.png"
@@ -53,7 +53,7 @@ export default async function EventPage({ params }: { params: { slug: string } }
                     {event.podnadpis ? <span className="text-xl">{event.podnadpis}</span> : null}<br />
                     <div className="text-xl border-white border-2 flex justify-between p-1">
                         <span>Vstupenky od</span>
-                        {event.price ? <span>{event.price + " Kč"}</span> : null}<br />
+                        {event.price ? <span>{event.price + " Kč"}</span> : <span>Zadarmo</span>}<br />
                     </div>
 
                 </div>
