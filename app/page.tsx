@@ -62,7 +62,7 @@ export default async function Home() {
                 </div>
               </Link>
               <div className="text-white flex flex-col h-1/3 text-lg p-2">
-                {g.name && g.date ? <span>{`${g.name} ${g.date}`}</span> : null}
+                {g.name ? <span>{`${g.name}`}</span> : null}
                 {g.slug ? <Link href={`/fotogalerie/${g.slug}`} className="text-yellow-200 uppercase">Zobrazit vše</Link> : null}
               </div>
             </div>

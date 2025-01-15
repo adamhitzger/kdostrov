@@ -24,11 +24,6 @@ export const galleryType = defineType({
             }
         }),
         defineField({
-            name: "date",
-            title: "Datum koncertu",
-            type: "date",
-        }),
-        defineField({
             name:"section",
             title:"Sekce na stánce",
             type:"string",

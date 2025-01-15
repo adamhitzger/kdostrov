@@ -51,7 +51,6 @@ export const GALLERY_QUERY = groq`*[_type == 'gallery' && slug.current == $slug]
 export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty'] | order(date desc){
     name,
     "slug": slug.current,
-    date,
     time,
     "photo": image.asset->url,
 }`;
@@ -84,7 +83,6 @@ export const EVENTS_QUERY = groq`*[_type == 'event'] | order(date asc) {
     "slug": slug.current,
     "photo": picture.asset->url,
     price,
-    date,
     time,
     eventType,
 }`;
@@ -103,7 +101,6 @@ export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date asc) {
 export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery'][0...3] | order(date desc){
     name,
     "slug": slug.current,
-    date,
     time,
     "photo": image.asset->url,
 }`;
