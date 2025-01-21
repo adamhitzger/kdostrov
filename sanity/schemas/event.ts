@@ -5,6 +5,11 @@ export const eventType = defineType({
     type: "document",
     fields: [
         defineField({
+            name: "date",
+            title: "Datum konání",
+            type: "date",
+        }),
+        defineField({
             name: "name",
             title: "Název akce",
             type: "string",
