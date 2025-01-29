@@ -72,7 +72,7 @@ export default function Navbar() {
             <div className="lg:hidden flex flex-1 justify-end items-center">
                 <div className="md:hidden flex flex-1 justify-end items-center mr-10">
                     <Sheet >
-                        <SheetTrigger><Menu width={32} height={32} color="black" /></SheetTrigger>
+                        <SheetTrigger aria-roledescription="dialog" aria-label="Open menu"><Menu width={32} height={32} color="black" /></SheetTrigger>
                         <SheetContent side={"right"} className="bg-black">
                             <SheetDescription>
                                 <ul className="list-none flex justify-end items-start flex-1 flex-col ">
