@@ -11,6 +11,7 @@ import Navbar from "@/components/Navbar";
 import { Sponsors } from "@/sanity/lib/interfaces";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footer from "@/components/Footer";
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -88,6 +89,13 @@ export default function RootLayout({
   ];
   return (
     <html lang="en">
+    <Head>
+      <link
+          rel="canonical"
+          href="https://www.kdostrov.cz"
+          key="canonical"
+        />
+      </Head>
       <body className={cn("bg-black text-white", inter.className)}>
         {draftMode().isEnabled && (
           <div>
