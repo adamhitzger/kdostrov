@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { PortableTextComponents } from "next-sanity";
+import React from "react";
+export const SupDecorator = ({children}: {children: React.ReactNode}) => (
+    <sup>{children}</sup>
+  );
 
 export const components: Partial<PortableTextComponents> = {
     list: {
@@ -18,6 +22,7 @@ export const components: Partial<PortableTextComponents> = {
         h6: ({ children }) => <h6 className="font-bold">{children}</h6>,
 
         blockquote: ({ children }) => <blockquote className="border-l-purple-500">{children}</blockquote>,
+        
     },
     marks: {
         em: ({ children }) => <em className=" font-semibold">{children}</em>,
@@ -30,6 +35,9 @@ export const components: Partial<PortableTextComponents> = {
                     {children}
                 </Link>
             )
-        }
+        },
+        supIndex: ({ children }) => (
+            <sup>{children}</sup>
+        ),
     }
 }
