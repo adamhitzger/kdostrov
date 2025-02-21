@@ -26,7 +26,6 @@ export const equipmentType = defineType({
                     decorators: [
                         { title: 'Strong', value: 'strong' },
                         { title: 'Emphasis', value: 'em' },
-                        { title: 'Code', value: 'code' },
                         { title: 'Underline', value: 'underline' },
                         {
                             title: 'm2',
@@ -47,10 +46,5 @@ export const equipmentType = defineType({
                 {name: "pdf", type:"array", title:"Soubor", of:[{type: "file"}]}
             ]
         }),
-        defineField({
-            name: "linkNaFotky",
-            type: "url",
-            title: "Odkaz na fotky např: https://www.kdostrov.cz/fotogalerie/ukazky-akci"
-        })
     ]
 })
