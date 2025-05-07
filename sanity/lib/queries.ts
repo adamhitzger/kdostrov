@@ -48,7 +48,7 @@ export const GALLERY_QUERY = groq`*[_type == 'gallery' && slug.current == $slug]
     seo,
 }`;
 
-export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty'] | order(date desc){
+export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty'] | order(date asc){
     name,
     "slug": slug.current,
     time,
@@ -98,7 +98,7 @@ export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date asc) {
     eventType
 }`;
 
-export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery'][0...3] | order(date desc){
+export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery'] | order(date asc){
     name,
     "slug": slug.current,
     time,

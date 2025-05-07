@@ -12,7 +12,7 @@ export default function Gallery({gallery}: {gallery: GalleryCard[]}){
         </div>
         <div className="my-5 grid grid-cols-2 lg:grid-cols-3 w-full gap-5 lg:gap-8 min-h-screen">
           {gallery.map((g: GalleryCard, idx: number) => (
-
+            gallery.length - 4 < idx ?
             <div key={idx} className="w-full h-full ">
               <Link href={`/fotogalerie/${g.slug}`}>
                 <div className=" relative h-2/3 rounded-lg ">
@@ -24,6 +24,7 @@ export default function Gallery({gallery}: {gallery: GalleryCard[]}){
                 {g.slug ? <Link href={`/fotogalerie/${g.slug}`} className="text-yellow-200 uppercase">Zobrazit vše</Link> : null}
               </div>
             </div>
+          :null
           ))}
         </div>
       </section>
