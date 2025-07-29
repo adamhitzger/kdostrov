@@ -100,7 +100,8 @@ export async function newsletter(formData: FormData, emailType: emailType) {
     };
 
     try{
-      await  transporter.sendMail(mailOptions);  
+      const emailSent = await  transporter.sendMail(mailOptions);  
+      console.log(emailSent.accepted);
     }catch(error){
       console.log(error);
     }
