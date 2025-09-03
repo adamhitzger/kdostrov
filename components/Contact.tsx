@@ -3,7 +3,6 @@
 import React, { useRef, useState, useTransition } from 'react'
 import { Button } from './ui/button';
 import { newsletter } from '@/app/actions';
-import { useRouter } from 'next/navigation';
 
 export default function ContactForm() {
     const formref = useRef<HTMLFormElement>(null);

@@ -20,7 +20,7 @@ export default async function Kontakt() {
                     <span>Číslo účtu: 43-7970790287/0100</span>
                     <div className=''>
                         <span>IČO: 26951444</span><br/>
-                        <span>DIČ: CZ2651444</span>
+                        <span>DIČ: CZ26951444</span>
                     </div>
                 </div>
                 <div className='w-full md:w-1/2  border-2 rounded-[25px] bg-white text-black py-5 px-2'>
