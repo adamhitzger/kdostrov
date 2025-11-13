@@ -1,9 +1,7 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import Link from "next/link"
 import { EventType } from "@/sanity/lib/interfaces"
 import qs from "query-string";
-import { eventType } from "@/sanity/schemas/event";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))

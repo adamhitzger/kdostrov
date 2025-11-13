@@ -98,7 +98,7 @@ export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date asc) {
     eventType
 }`;
 
-export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery'] | order(date asc){
+export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery'] | order(date desc){
     name,
     "slug": slug.current,
     time,
