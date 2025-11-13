@@ -48,7 +48,7 @@ export const GALLERY_QUERY = groq`*[_type == 'gallery' && slug.current == $slug]
     seo,
 }`;
 
-export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty'] | order(date asc){
+export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty'] | order(date desc){
     name,
     "slug": slug.current,
     time,
@@ -78,7 +78,7 @@ export const EVENT_QUERY = groq`*[_type == 'event' && slug.current == $slug][0] 
     eventType,
 }`;
 
-export const EVENTS_QUERY = groq`*[_type == 'event'] | order(date asc) {
+export const EVENTS_QUERY = groq`*[_type == 'event'] | order(date desc) {
     name,
     "slug": slug.current,
     "photo": picture.asset->url,
@@ -87,7 +87,7 @@ export const EVENTS_QUERY = groq`*[_type == 'event'] | order(date asc) {
     eventType,
 }`;
 
-export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date asc) {
+export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date desc) {
     name,
     "slug": slug.current,
     "banner": image.asset->url,
@@ -98,7 +98,7 @@ export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date asc) {
     eventType
 }`;
 
-export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery'] | order(date desc){
+export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery']{
     name,
     "slug": slug.current,
     time,
