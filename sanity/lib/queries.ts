@@ -78,7 +78,7 @@ export const EVENT_QUERY = groq`*[_type == 'event' && slug.current == $slug][0] 
     eventType,
 }`;
 
-export const EVENTS_QUERY = groq`*[_type == 'event'] | order(date desc) {
+export const EVENTS_QUERY = groq`*[_type == 'event'] {
     name,
     "slug": slug.current,
     "photo": picture.asset->url,
@@ -87,7 +87,7 @@ export const EVENTS_QUERY = groq`*[_type == 'event'] | order(date desc) {
     eventType,
 }`;
 
-export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date desc) {
+export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date asc) {
     name,
     "slug": slug.current,
     "banner": image.asset->url,
