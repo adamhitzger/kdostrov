@@ -52,7 +52,7 @@ export const GALLERIES_QUERY = groq`*[_type == 'gallery' && section == 'Koncerty
     name,
     "slug": slug.current,
     time,
-    "photo": image.asset->url,
+    "photo": gallery[0].asset->url,
 }`;
 
 export const SHOW_QUERY = groq`*[_type == 'gallery' && section == 'Ukázky'] | order(date desc){
@@ -98,9 +98,9 @@ export const CAROUSEL_QUERY = groq`*[_type == 'event' ] | order(date asc) {
     eventType
 }`;
 
-export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery']{
+export const GALLERY_MAINPAGE_QUERY = groq`*[_type == 'gallery'] | order(date desc){
     name,
     "slug": slug.current,
     time,
-    "photo": image.asset->url,
+    "photo": gallery[0].asset->url,
 }`;

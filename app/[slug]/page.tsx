@@ -46,15 +46,15 @@ export default async function EventPage({ params }: { params: { slug: string } }
 
     return (
         <main className="bg-white">
-            <section className={`w-full relative bg-cover flex z-10 before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]`} style={{ backgroundImage: `url(${event.photo})` }}>
+            <section className={`w-full relative md:min-h-96 bg-cover flex z-10 before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]`} style={{ backgroundImage: `url(${event.photo})` }}>
                 <div className="w-full leading-normal mt-20 space-y-4 lg:w-1/2 text-gray-200 font-bold text-3xl lg:text-5xl flex-col px-10 lg:px-20 py-10">
                     {event.name ? <span>{event.name}</span> : null}<br />
                     {event.time ? <span>{` ${event.time}`}</span> : null}<br />
                     {event.podnadpis ? <span className="text-xl">{event.podnadpis}</span> : null}<br />
-                    <div className="text-xl border-white border-2 flex justify-between p-1">
+                    {event.price > 0 && <div className="text-xl border-white border-2 flex justify-between p-1">
                         <span>Vstupenky od</span>
                         {event.price ? <span>{event.price + " Kč"}</span> : <span>Zadarmo</span>}<br />
-                    </div>
+                    </div>}
 
                 </div>
             </section>

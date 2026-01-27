@@ -28,19 +28,19 @@ export default async function Program({ searchParams }: { searchParams: { [key: 
                 </div>
                 {query &&
                     query.result.map((e: EventCard, idx: number) => (
-                        <div key={idx} className="flex flex-row items-center border-t-2 border-white pt-4 w-full justify-between ">
+                        <Link href={`${e.slug}`} key={idx} className="flex flex-row items-center border-t-2 border-white pt-4 w-full justify-between ">
                             <Image src={e.photo} alt={e.photo} width={150} height={150} />
                             <div className="hidden sm:flex flex-col ml-6 md:my-0 content-start w-full space-y-6">
-                                <Badge className={`w-fit bg-amber-400`}>{e.eventType}</Badge>
+                                <Badge className={`w-fit bg-amber-400 text-black`}>{e.eventType}</Badge>
                                 <div className="text-xl text-left">
                                     <span>{`${e.name}`}</span><br />
                                     <span>{` ${e.time}`}</span>
                                 </div>
                             </div>
-                            <Link href={`${e.slug}`}>
+                           
                                 <Button size={"lg"} variant={"outline"}>O akci</Button>
-                            </Link>
-                        </div>
+                            
+                        </Link>
                     ))}
 
             </section>

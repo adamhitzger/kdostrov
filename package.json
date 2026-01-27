@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@libsql/client": "^0.17.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@sanity/image-url": "^1.0.2",
@@ -32,6 +33,7 @@
     "react-social-icons": "^6.16.0",
     "rxjs": "^7.8.1",
     "sanity": "^3.46.1",
+    "styled-components": "^6.3.8",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },

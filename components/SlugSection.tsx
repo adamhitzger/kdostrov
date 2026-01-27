@@ -1,4 +1,4 @@
-"use client"
+
 import Link from 'next/link';
 import React from 'react'
 import { Button } from './ui/button';
@@ -16,7 +16,7 @@ export default function SlugSection({ text, rsText, url, reenio }: SSProps) {
 
     return (
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-black w-full h-full p-10">
-            <div className='w-full h-full text-justify'>
+            <div className='w-full h-full text-left'>
                 <PortableText value={text} components={components} />
             </div>
             <div className='flex flex-col w-full h-full space-y-5'>

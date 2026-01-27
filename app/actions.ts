@@ -5,6 +5,7 @@ import { redirect, useRouter } from "next/navigation";
 import { emailType, EventCard } from "@/sanity/lib/interfaces";
 import { groq } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
+import { turso } from "@/lib/dbclient";
 
 export async function getAllEvents(){
   const FILTERED_EVENTS_QUERY = groq`*[_type == 'event'] | order(date asc) {
@@ -83,6 +84,7 @@ export async function newsletter(formData: FormData, emailType: emailType) {
         ltd = formData.get("ltd") as string;
         msg = formData.get("msg") as string;
     }
+    
 
     const transporter = createTransport({
      service: "gmail",
@@ -95,13 +97,19 @@ export async function newsletter(formData: FormData, emailType: emailType) {
     const mailOptions = {
       from: process.env.FROM_EMAIL,
       to: process.env.TO_EMAIL,
-      subject: emailType === "newsletter" ? "Newsletter" : "Kontakt",
-      text: emailType == "newsletter" ? `${email}` : `${fullname}, ${phone}, ${email}, ${ltd}, ${msg}` ,
+      subject: "Kontakt",
+      text: `${fullname}, ${phone}, ${email}, ${ltd}, ${msg}` ,
     };
 
     try{
-      const emailSent = await  transporter.sendMail(mailOptions);  
+      if(emailType === "contact"){
+        const emailSent = await  transporter.sendMail(mailOptions);  
       console.log(emailSent.accepted);
+      }
+      await turso.execute({
+        sql:"INSERT INTO newsletter (email) VALUES (?)",
+        args: [email]
+      })
     }catch(error){
       console.log(error);
     }

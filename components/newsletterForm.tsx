@@ -45,6 +45,7 @@ export default function NewsletterForm() {
                     <input className="bg-white text-black text-base tracking-wider border border-white w-full px-2" name="email" placeholder="Zadejte email" value={form.email} type="email" onChange={handleChange} required />
                     <Button className="my-0" variant="outline" >{false ? "Odesílám" : "Odeslat"}</Button>
                 </form>
+                <span >Odesláním souhlasíte se <Link className="font-semibold underline underline-offset-2" href={"/ochrana-os-udaju"}>zpracováním osobních údajů</Link></span>
             </div>
             <div className="w-full lg:w-1/2 space-y-4 border border-white py-10">
                 <h2 className="text-xl font-semibold tracking-wide text-center">Spojte se s námi</h2>

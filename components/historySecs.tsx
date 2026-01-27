@@ -1,17 +1,14 @@
-"use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "./ui/button";
 import { PortableText } from "next-sanity";
-import { TextWithImageSection, TextWithImageSectionHistory } from "@/sanity/lib/interfaces";
+import { TextWithImageSectionHistory } from "@/sanity/lib/interfaces";
 import { components } from "@/sanity/lib/components";
 
 export default function HistoryComp({ heading, text, textWithImageUrl,caption,  position, _type = "textWithImage" }: TextWithImageSectionHistory) {
 
     return (
         <section
-            className={` flex flex-wrap lg:flex-nowrap  lg:min-h-fit  ${position === "Obrázek vlevo" ? "lg:flex-row-reverse" : "lg:flex-row"} `}>
+            className={` flex flex-wrap md:flex-nowrap py-10  ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} `}>
             <div className="w-full lg:w-1/2 flex flex-col  px-5  font-light">
                 <div className="flex flex-col w-full m-auto lg:px-10">
                     {heading && (
@@ -27,7 +24,7 @@ export default function HistoryComp({ heading, text, textWithImageUrl,caption,  
                     </div>
                 </div>
             </div>
-            <div className={`w-full py-10 lg:py-0  lg:w-1/2 flex justify-center items-center h-[34rem] md:min-h-screen`}>
+            <div className={`w-full py-10 flex-col justify-center  lg:w-1/2 flex items-center h-[30rem]`}>
                 
                     {textWithImageUrl ? <Image src={textWithImageUrl} alt={caption} width={1000} height={1000} className="object-cover" /> : null}
         

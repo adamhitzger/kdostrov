@@ -8,8 +8,6 @@ import {
     Sheet,
     SheetContent,
     SheetDescription,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
 
@@ -80,7 +78,7 @@ export default function Navbar() {
                                         <li
                                             key={index}
                                             className={`font-poppins font-medium cursor-pointer text-xl ${active === nav.label ? "text-amber-400" : "text-white"
-                                                } ${index === navLinks.length - 1 ? "mb-0" : "mb-2"}`}
+                                                } ${index === navLinks.length - 1 ? "mb-0" : "mb-6"}`}
                                             onClick={() => setActive(nav.label)}
                                         >
                                             <a href={`${nav.route}`} >{nav.label}</a>
