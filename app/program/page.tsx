@@ -5,10 +5,11 @@ import { EVENTS_QUERY } from '@/sanity/lib/queries';
 import Link from "next/link"
 import Image from "next/image";
 import React from 'react'
-import { sanityFetch } from '@/sanity/lib/fetch';
-import { getColors } from "@/lib/utils";
 import { getAllEvents, getEvents } from "../actions";
 import Filters from "@/components/Filters";
+
+export const dynamic = "force-dynamic";
+
 
 export default async function Program({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
     let query;
