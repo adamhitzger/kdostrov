@@ -44,9 +44,7 @@ export default function Photos({
 
   return (
     <motion.div
-      className={`my-10 w-full grid grid-cols-2 ${
-        length === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"
-      } gap-y-6 gap-x-6`}
+      className={`my-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-6`}
     >
       {urls.map((g: string, idx: number) => (
         <motion.div

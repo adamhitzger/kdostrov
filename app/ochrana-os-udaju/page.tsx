@@ -16,7 +16,7 @@ Správcem osobních údajů je: KD Ostrov s.r.o., IČO: 26951444 <br/>
 sídlem  Na Ostrově 28, 580 01 Havlíčkův Brod, zapsaná na ŽÚ Havlíčkův Brod.<br/>
 Poskytovatel není plátcem DPH.<br/>
 email: info@kdostrov.cz<br/>
-telefon: +420 606 705 889<br/>
+telefon: +420 702 200 208<br/>
 webová adresa: www.kdostrov.cz
 (dále také jen „správce“).<br/>
 Správce zpracovává osobní údaje návštěvníků portálu a zákazníků (dále také jen „návštěvník“ anebo „subjekt údajů“).
@@ -36,7 +36,6 @@ Správce zpracovává osobní údaje návštěvníků portálu a zákazníků (d
                     Správce zpracovává některé osobní údaje automaticky, a to:</li>
                     <li>IP adresu</li>
                     <li>datum a čas přístupu na portál,</li>
-                    <li> informace o internetovém prohlížeči návštěvníka a jeho operačním systému a jazyka,</li>
                     <li> informace o internetovém prohlížeči návštěvníka a jeho operačním systému a jazyka,</li>
                     <li>osobní údaje zadané v rámci vyplnění formuláře nutného pro zpracování návrhu, tj. zejména
                     jméno a příjmení, informace o příjmech návštěvníka a jeho výdajích, informace o spolužadateli, informace o účelu financování apod.</li>

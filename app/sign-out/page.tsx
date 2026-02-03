@@ -1,6 +1,5 @@
 "use client"
 
-import { useSearchParams } from "next/navigation"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
@@ -8,8 +7,6 @@ import { useTransition } from "react"
 import { signOutFromMailsUnregistered } from "../actions"
 
 export default function SignOutmail(){
-    const searchParams = useSearchParams()
-    const mail = searchParams.get("mail")
     const [isPending, startTransition] = useTransition();
     
     const signOutMail= (formData: FormData) => {
@@ -24,7 +21,7 @@ export default function SignOutmail(){
         action={signOutMail}
         className="m-auto w-96 max-w-2xl grid grid-cols-1 border-2 rounded-2xl p-8  gap-4  text-black " >
             <h1 className="text-3xl text-center text-white font-bold">Odhlašte se z odběru novinek</h1>
-           <Input className="border-white text-white" name="email" type="email" disabled={isPending} placeholder="Zadejte email" defaultValue={mail as string} required />
+           <Input className="border-white text-white" name="email" type="email" disabled={isPending} placeholder="Zadejte email"  required />
             <Button type="submit" size={'lg'} variant={"default"} className='mx-auto font-bold bg-amber-400  shadow-lg  shadow-primary-foreground'>
                 {isPending ? <Loader2 className='animate-spin' /> : <>Odhlásit se </>}
             </Button>
