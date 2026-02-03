@@ -4,12 +4,14 @@ import React, {useTransition } from 'react'
 import { Button } from './ui/button';
 import { newsletter } from '@/app/actions';
 import Link from 'next/link';
+import { toast } from 'sonner';
+
 export default function ContactForm() {
     const [isPending, startTransition] = useTransition();
 
     const sendNewsletter = async (formData: FormData) => {
         await newsletter(formData, "contact");
-        
+        toast.success("Vaše zpráva byla zaslána")
     }
     return (
         <>

@@ -12,6 +12,7 @@ import { Sponsors } from "@/sanity/lib/interfaces";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footer from "@/components/Footer";
 import Head from "next/head";
+import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -128,6 +129,7 @@ export default function RootLayout({
           <Image src={"/sponzors/mjplayas.jpg"} alt={"Dotace EU "} fill={true} className="bg-cover object-contain" />
 
         </section>
+        <Toaster position="top-center"/>
         {draftMode().isEnabled && <VisualEditing />}
         <SpeedInsights />
         <Footer />

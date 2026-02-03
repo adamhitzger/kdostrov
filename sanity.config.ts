@@ -16,7 +16,7 @@ export default defineConfig({
     actions: ((prev: DocumentActionComponent[], context: { schemaType: string }) => {
       // Check if the schema type is 'orders'
       if (context.schemaType === 'event') {
-        return [sendMails, ...prev];
+        return [...prev,sendMails, ];
       }
       return prev;
     }) as DocumentActionsResolver,

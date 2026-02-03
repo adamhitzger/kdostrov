@@ -200,9 +200,8 @@ export async function generateNewsletterHTML(
                   ${footerText}
                 </p>
                 <p style="margin: 12px 0 0; font-size: 13px; color: #a1a1aa;">
-                  <a href="${baseUrl}/odhlasit" style="color: #a1a1aa; text-decoration: underline;">Odhlásit odběr</a>
-                  &nbsp;•&nbsp;
-                  <a href="${baseUrl}/nastaveni" style="color: #a1a1aa; text-decoration: underline;">Nastavení e-mailu</a>
+                  <a href="${baseUrl}/sign-out" style="color: #a1a1aa; text-decoration: underline;">Odhlásit odběr</a>
+                  &nbsp;
                 </p>
               </td>
             </tr>
@@ -302,7 +301,7 @@ export async function createCampaign(){
   
     const mailOptions = {
       from: process.env.FROM_EMAIL,
-      to: "adam.hitzger@icloud.com",
+      to: ["vedeni@kdostrov.cz", "info@kdostrov.cz"],
       subject: "Newsletter",
       html,
     };

@@ -9,6 +9,8 @@ import 'react-social-icons/instagram'
 import { newsletter } from "@/app/actions";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
+import { Toaster } from "./ui/sonner";
+import { toast } from "sonner";
 
 export default function NewsletterForm() {
     const formRef: RefObject<HTMLFormElement> = useRef<HTMLFormElement>(null!);
@@ -31,6 +33,7 @@ export default function NewsletterForm() {
     }
     const sendNewsletter = async (formData: FormData) => {
         await newsletter(formData, "newsletter");
+        toast.success("Email byl uložen")
         setForm({
             email: "",
         })
