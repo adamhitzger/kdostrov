@@ -131,6 +131,7 @@ export default function RootLayout({
         {draftMode().isEnabled && <VisualEditing />}
         <SpeedInsights />
         <Footer />
+        
       </body>
     </html>
   );
