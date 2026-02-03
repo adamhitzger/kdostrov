@@ -9,7 +9,7 @@ export default function TextWithImage({ text, url, position, isDynamic, node, co
         <section
             className={`flex ${position === "Obrázek vlevo" ? "flex-wrap-reverse" : "flex-wrap"} md:flex-nowrap ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"}  2xl:p-20 h-max gap-x-5`}>
             <div className="w-full md:w-1/2 h-full flex flex-col p-4">
-                <div className={`text-${!color ? "black" : color} flex flex-col h-full items-center text-lg sm:text-xl leading-8 `}>
+                <div className={`text-${!color ? "black" : color} flex flex-col h-full items-center text-md sm:text-xl leading-8 `}>
                     {node ? node : null}
                     {isDynamic && text ? (text ? <PortableText
                         value={text} components={components}

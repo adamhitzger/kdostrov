@@ -80,7 +80,7 @@ export default async function EventGalleryPage({ params }: { params: { slug: str
                             </div>
                         </div>
                         <div className="w-full font-extrabold text-6xl mb-4">
-                            {eventgallery.name ? <span>{eventgallery.name}</span> : null}<br />
+                            {eventgallery.name ? <span className="text-5xl sm:text-6xl">{eventgallery.name}</span> : null}<br />
                         </div>
                     </div>
                 } />
