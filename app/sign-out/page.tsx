@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
 import { useTransition } from "react"
-import toast from "react-hot-toast"
 import { signOutFromMailsUnregistered } from "../actions"
 
 export default function SignOutmail(){
@@ -16,8 +15,7 @@ export default function SignOutmail(){
     const signOutMail= (formData: FormData) => {
         startTransition(async () => {
             const signOut = await signOutFromMailsUnregistered(formData)
-            if(signOut.success) toast.success("Byl jste odhlášen")
-            else toast.error("Vyskytl se problém s odhlášením.")
+            
         })
     }
     return(
