@@ -6,6 +6,7 @@ import {  Metadata } from "next";
 
 export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
     const e = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params })
+    console.log(e)
     return{
         icons: {
             icon: "/sponzors/image.png"
@@ -49,6 +50,7 @@ export default async function EventPage({ params }: { params: { slug: string } }
             <section className={`w-full relative md:min-h-96 bg-cover flex z-10 before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]`} style={{ backgroundImage: `url(${event.photo})` }}>
                 <div className="w-full leading-normal mt-20 space-y-4 lg:w-1/2 text-gray-200 font-bold text-3xl lg:text-5xl flex-col px-10 lg:px-20 py-10">
                     {event.name ? <span>{event.name}</span> : null}<br />
+                    {event.date ? <span>{` ${new Date(event.date).toLocaleDateString("cs-cz")}`}</span> : null}<br />
                     {event.time ? <span>{` ${event.time}`}</span> : null}<br />
                     {event.podnadpis ? <span className="text-xl">{event.podnadpis}</span> : null}<br />
                     {event.price > 0 && <div className="text-xl border-white border-2 flex justify-between p-1">

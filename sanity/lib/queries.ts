@@ -66,6 +66,7 @@ export const SHOW_QUERY = groq`*[_type == 'gallery' && section == 'Ukázky'] | o
 export const EVENT_QUERY = groq`*[_type == 'event' && slug.current == $slug][0] {
     name,
     "slug": slug.current,
+    date,
     podnadpis,
     text,
     reservation_text,

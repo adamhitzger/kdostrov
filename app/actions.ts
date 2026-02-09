@@ -217,7 +217,7 @@ export async function generateNewsletterHTML(
 }
 
 
-export async function getAllEvents(){
+export async function getAllEvents():Promise<{result: EventCard[]}>{
   const FILTERED_EVENTS_QUERY = groq`*[_type == 'event'] | order(date asc) {
     name,
     "slug": slug.current,
@@ -238,7 +238,7 @@ try{
 }
 }
 
-export async function getEvents(params: string){
+export async function getEvents(params: string):Promise<{result: EventCard[]}>{
   let filter: string = "";
   let query = "";
   switch(params){
