@@ -9,7 +9,7 @@ export default function Footer() {
             <div className='w-full grid grid-rows-2 gap-y-3 md:w-4/5   mx-auto'>
                 <div className='grid grid-cols-3 py-4 border-t-2 border-white'>
                     <span>info@kdostrov.cz</span>
-                    <Link href={"https://cdn.sanity.io/files/a3wdqcta/production/fd8b93eaf3657ff35833dbaad3ca71d8ab187e67.pdf"}>Zásady ochrany osobních údajů</Link>
+                    <Link href={"https://cdn.sanity.io/files/a3wdqcta/production/8a32d372c27ba39dda6a5d4997534c8c026a47dd.pdf"}>Zásady ochrany osobních údajů</Link>
                     <span>Na Ostrově 28/3, 580 01, Havlíčkův Brod</span>
                 </div>
                 <div className='grid grid-cols-3 py-4 border-t-2 border-white'>
