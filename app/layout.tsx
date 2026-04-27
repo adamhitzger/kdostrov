@@ -13,6 +13,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footer from "@/components/Footer";
 import Head from "next/head";
 import { Toaster } from "@/components/ui/sonner";
+import FirmyCZButton from "@/components/firmycz";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -106,6 +107,7 @@ export default function RootLayout({
           </div>
         )}
         <Navbar />
+        <FirmyCZButton/>
         {children}
         <NewsletterForm />
         <section className="flex flex-col bg-white space-y-5 px-20 lg:px-30 py-10">
