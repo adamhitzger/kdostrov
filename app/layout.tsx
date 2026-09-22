@@ -14,6 +14,9 @@ import Footer from "@/components/Footer";
 import Head from "next/head";
 import { Toaster } from "@/components/ui/sonner";
 import FirmyCZButton from "@/components/firmycz";
+import Script from "next/script";
+import { Suspense } from "react";
+import MetaPixel from "@/components/FacebookPixel";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -97,6 +100,7 @@ export default function RootLayout({
           href="https://www.kdostrov.cz"
           key="canonical"
         />
+        
       </Head>
       <body className={cn("bg-black text-white", inter.className)}>
         {draftMode().isEnabled && (
@@ -135,7 +139,9 @@ export default function RootLayout({
         {draftMode().isEnabled && <VisualEditing />}
         <SpeedInsights />
         <Footer />
-        
+        <Suspense fallback={null}>
+          <MetaPixel/>
+        </Suspense>
       </body>
     </html>
   );
