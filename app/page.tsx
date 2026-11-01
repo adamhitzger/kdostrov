@@ -7,17 +7,15 @@ import Events from "@/components/events";
 import MetaPixel from "@/components/FacebookPixel";
 
 export default async function Home() {
-  const carouselPromise = await sanityFetch<EventCard[]>({ query: CAROUSEL_QUERY });
-  const galleryPromise = await sanityFetch<GalleryCard[]>({ query: GALLERY_MAINPAGE_QUERY });
+  const carouselPromise = await sanityFetch<EventCard[]>({ query: CAROUSEL_QUERY, tags: ["event"] });
+  const galleryPromise = await sanityFetch<GalleryCard[]>({ query: GALLERY_MAINPAGE_QUERY, tags: ["gallery"] });
   const [carousel, gallery] = await Promise.all([
     carouselPromise,
     galleryPromise
   ]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10 text-white">
-      
-     
+    <main className="flex min-h-screen flex-col items-center justify-between p-10 text-white">     
         <ImageSlider slides={carousel} />
       <Events events={carousel}/>
      <Gallery gallery={gallery}/>

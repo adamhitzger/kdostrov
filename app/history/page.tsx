@@ -5,7 +5,7 @@ import { History, TextWithImageSectionHistory } from "@/sanity/lib/interfaces"
 import { HISTORY_QUERY } from "@/sanity/lib/queries"
 
 export default async function HistoryPage(){
-    const h = await sanityFetch<History>({query: HISTORY_QUERY});
+    const h = await sanityFetch<History>({ query: HISTORY_QUERY, tags: ["history"] });
     console.log(h)
     return(
         <main className="tracking-widest w-full flex flex-col min-h-screen px-10 lg:px-20 py-10  bg-white">

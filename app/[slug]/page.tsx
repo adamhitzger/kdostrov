@@ -5,7 +5,7 @@ import { EVENT_QUERY } from "@/sanity/lib/queries";
 import {  Metadata } from "next";
 
 export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
-    const e = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params })
+    const e = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params, tags: ["event"] })
     console.log(e)
     return{
         icons: {
@@ -42,7 +42,7 @@ export async function generateMetadata({params}:{params: { slug: string}}):Promi
     }
 }
 export default async function EventPage({ params }: { params: { slug: string } }) {
-    const event = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params })
+    const event = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params, tags: ["event"] })
     console.log(event);
 
     return (

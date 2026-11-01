@@ -7,7 +7,7 @@ import { PortableText } from 'next-sanity'
 import { components } from '@/sanity/lib/components'
 
 export default async function PlansPage() {
-    const plany = await sanityFetch<Plany[]>({ query: PLANS_QUERY });
+    const plany = await sanityFetch<Plany[]>({ query: PLANS_QUERY, tags: ["plans"] });
     console.log(plany)
     return (
         <main className="w-full flex flex-col min-h-screen px-10 py-20 bg-black">

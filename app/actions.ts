@@ -228,7 +228,7 @@ export async function getAllEvents():Promise<{result: EventCard[]}>{
     eventType,
 }`;
 try{
-  const result = await sanityFetch<EventCard[]>({query: FILTERED_EVENTS_QUERY})
+  const result = await sanityFetch<EventCard[]>({ query: FILTERED_EVENTS_QUERY, tags: ["event"] })
   return {
     result
   };
@@ -268,7 +268,7 @@ export async function getEvents(params: string):Promise<{result: EventCard[]}>{
         eventType,
     }`;
     try{
-      const result = await sanityFetch<EventCard[]>({query: query})
+      const result = await sanityFetch<EventCard[]>({ query: query, tags: ["event"] })
       return {
         result
       };
@@ -289,7 +289,7 @@ export async function createCampaign(){
         time,
         eventType,
     }`;
-    const result = await sanityFetch<EventCard[]>({query: query})
+    const result = await sanityFetch<EventCard[]>({ query: query, tags: ["event"] })
     const html = await generateNewsletterHTML(result)
     const transporter = createTransport({
      service: "gmail",

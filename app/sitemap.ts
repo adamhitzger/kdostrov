@@ -22,13 +22,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString()
       }));
-    const eventPromise: Route[] = await sanityFetch<EventInterface[]>({query: EVENTS_QUERY}).then((events) =>
+    const eventPromise: Route[] = await sanityFetch<EventInterface[]>({ query: EVENTS_QUERY, tags: ["event"] }).then((events) =>
         events.map((e: EventInterface) => ({
             url: `${baseUrl}/${e.slug}`,
             lastModified: new Date().toISOString()
         }))
     );
-    const galleryPromise: Route[] = await sanityFetch<Gallery[]>({query: GALLERIES_QUERY}).then((galleries) =>
+    const galleryPromise: Route[] = await sanityFetch<Gallery[]>({ query: GALLERIES_QUERY, tags: ["gallery"] }).then((galleries) =>
         galleries.map((g: Gallery) => ({
             url: `${baseUrl}/fotogalerie/${g.slug}`,
             lastModified: new Date().toISOString()

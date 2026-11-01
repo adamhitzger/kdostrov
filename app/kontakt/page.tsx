@@ -8,7 +8,7 @@ import ContactForm from '@/components/Contact';
 import Link from 'next/link';
 
 export default async function Kontakt() {
-    const kontakt = await sanityFetch<StaffQuery>({ query: STAFF_QUERY });
+    const kontakt = await sanityFetch<StaffQuery>({ query: STAFF_QUERY, tags: ["staff"] });
     console.log(kontakt)
     return (
         <main className='w-full flex flex-col space-y-10 py-20 px-10 lg:py-20 text-white'>

@@ -5,7 +5,7 @@ import { Gallery } from "@/sanity/lib/interfaces"
 import { GALLERY_QUERY } from "@/sanity/lib/queries";
 import { ResolvingMetadata, Metadata } from "next";
 export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
-    const e = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params });
+    const e = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params, tags: ["gallery"] });
     
     return{
         icons: {
@@ -67,7 +67,7 @@ export async function generateMetadata({params}:{params: { slug: string}}):Promi
     }
 }
 export default async function EventGalleryPage({ params }: { params: { slug: string } }) {
-    const eventgallery = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params });
+    const eventgallery = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params, tags: ["gallery"] });
     console.log(eventgallery)
     return (
         <main className="tracking-widest w-full flex flex-col min-h-screen px-10 lg:px-20 pt-10 bg-white">

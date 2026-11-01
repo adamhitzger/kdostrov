@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Gallery() {
-    const galleryPromise = await sanityFetch<GalleryCard[]>({ query: GALLERIES_QUERY });
-    const ukazkaPromise = await sanityFetch<GalleryCard[]>({ query: SHOW_QUERY });
+    const galleryPromise = await sanityFetch<GalleryCard[]>({ query: GALLERIES_QUERY, tags: ["gallery"] });
+    const ukazkaPromise = await sanityFetch<GalleryCard[]>({ query: SHOW_QUERY, tags: ["gallery"] });
     const [gallery, ukazka] = await Promise.all([
         galleryPromise,
         ukazkaPromise,

@@ -5,7 +5,7 @@ import { EQUIPMENT_QUERY } from '@/sanity/lib/queries'
 import React from 'react'
 
 export default async function VybaveniPage() {
-    const equipments: EquipmentInt[] = await sanityFetch<EquipmentInt[]>({ query: EQUIPMENT_QUERY });
+    const equipments: EquipmentInt[] = await sanityFetch<EquipmentInt[]>({ query: EQUIPMENT_QUERY, tags: ["equipment"] });
     console.log(equipments)
     return (
         <main className='grid grid-cols-1 py-20 px-10 gap-y-4 text-white'>
