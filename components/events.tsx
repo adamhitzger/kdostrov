@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import SanityImage from "@/components/sanityImage"
 import { EventCard } from "@/sanity/lib/interfaces"
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ export default function Events({events}: {events: EventCard[]}){
         {events.map((e: EventCard, idx: number) => (
           <Link href={`/${e.slug}`} key={idx} className="flex flex-row space-x-4 items-center border-t-2 border-white pt-4 w-full justify-between ">
           
-              <Image src={e.photo} alt={e.photo} width={150} height={150} />
+              <SanityImage src={e.photo} alt={e.name} width={150} height={150} />
 
             <div className="flex flex-col ml-6 md:my-0 content-start w-full space-y-6">
               <Badge className={`hidden sm:flex w-fit text-black bg-amber-400`}>{e.eventType}</Badge>

@@ -1,7 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/fetch"
 import { GalleryCard } from "@/sanity/lib/interfaces"
 import { GALLERIES_QUERY, SHOW_QUERY } from "@/sanity/lib/queries"
-import Image from "next/image";
+import SanityImage from "@/components/sanityImage";
 import Link from "next/link";
 
 export default async function Gallery() {
@@ -36,7 +36,7 @@ export default async function Gallery() {
                     <div key={idx} className="w-full h-full ">
                         <Link href={`/fotogalerie/${g.slug}`}>
                             <div className=" relative h-96 rounded-lg ">
-                                <Image src={g.photo} alt={g.photo} fill={true} className="object-contain w-full h-full rounded-lg shadow-md shadow-white hover:shadow-lg hover:opacity-80" />
+                                <SanityImage src={g.photo} alt={g.name} fill={true} sizes="(min-width: 1024px) 33vw, 50vw" className="object-contain w-full h-full rounded-lg shadow-md shadow-white hover:shadow-lg hover:opacity-80" />
                             </div>
                         </Link>
                         <div className="text-white flex flex-col h-1/3 text-lg p-2">
@@ -55,7 +55,7 @@ export default async function Gallery() {
                     <div key={idx} className="w-full h-full ">
                         <Link href={`/fotogalerie/${g.slug}`}>
                             <div className=" relative h-96 rounded-lg ">
-                                <Image src={g.photo} alt={g.photo} fill={true} className="object-contain w-full h-full rounded-lg shadow-md shadow-white hover:shadow-lg hover:opacity-80" />
+                                <SanityImage src={g.photo} alt={g.name} fill={true} sizes="(min-width: 1024px) 33vw, 50vw" className="object-contain w-full h-full rounded-lg shadow-md shadow-white hover:shadow-lg hover:opacity-80" />
                             </div>
                         </Link>
                         <div className="text-white flex flex-col h-1/3 text-lg p-2">

@@ -3,10 +3,13 @@ import TextWithImage from "@/components/textWithImage";
 import { sanityFetch } from "@/sanity/lib/fetch"
 import { Gallery } from "@/sanity/lib/interfaces"
 import { GALLERY_QUERY } from "@/sanity/lib/queries";
-import { ResolvingMetadata, Metadata } from "next";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { sanityJpg } from "@/lib/sanity-image";
+
 export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
     const e = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params, tags: ["gallery"] });
-    
+    if (!e) notFound();
     return{
         icons: {
             icon: "/sponzors/image.png"
@@ -31,44 +34,17 @@ export async function generateMetadata({params}:{params: { slug: string}}):Promi
             siteName: "Kulturní dům Ostrov Havlíčkův Brod",
             locale: "cs_CZ",
             type: "website",
-            images: [
-                {
-                    url: e.photo,
-                    width: 800,
-                    height: 600
-                },
-                {
-                    url: e.galleryUrls[0],
-                    width: 800,
-                    height: 600
-                },
-                {
-                    url: e.galleryUrls[1],
-                    width: 800,
-                    height: 600
-                },
-                {
-                    url: e.galleryUrls[2],
-                    width: 800,
-                    height: 600
-                },
-                {
-                    url: e.galleryUrls[3],
-                    width: 800,
-                    height: 600
-                },
-                {
-                    url: e.galleryUrls[4],
-                    width: 800,
-                    height: 600
-                },
-            ]
+            images: [e.photo, ...(e.galleryUrls ?? [])].filter(Boolean).slice(0, 2).map((url) => ({
+                url: sanityJpg(url, 800, 600),
+                width: 800,
+                height: 600
+            }))
           }
     }
 }
 export default async function EventGalleryPage({ params }: { params: { slug: string } }) {
     const eventgallery = await sanityFetch<Gallery>({ query: GALLERY_QUERY, params: params, tags: ["gallery"] });
-    console.log(eventgallery)
+    if (!eventgallery) notFound();
     return (
         <main className="tracking-widest w-full flex flex-col min-h-screen px-10 lg:px-20 pt-10 bg-white">
             <TextWithImage url={eventgallery.photo} position="Text vlevo" isDynamic={false}
@@ -84,7 +60,7 @@ export default async function EventGalleryPage({ params }: { params: { slug: str
                         </div>
                     </div>
                 } />
-            <Photos length={eventgallery.galleryUrls.length} urls={eventgallery.galleryUrls} />
+            <Photos length={eventgallery.galleryUrls?.length ?? 0} urls={eventgallery.galleryUrls ?? []} />
         </main>
     )
 }

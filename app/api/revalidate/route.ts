@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Třetí argument: počkat, než se změna propíše do Content Lake, ať další dotaz
-    // nevrátí ještě starou verzi a tu si cache neuloží na další hodinu.
+    // nevrátí ještě starou verzi a tu si cache neuloží na další den.
     const { isValidSignature, body } = await parseBody<{ _type?: string }>(req, secret, true)
 
     if (!isValidSignature) {

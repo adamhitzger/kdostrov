@@ -21,7 +21,7 @@ export default async function HistoryPage(){
                 )
             ))}
             
-            <ImageSlider2 small={h.galleryUrls} slides={h.galleryUrls}/>
+            <ImageSlider2 slides={h.galleryUrls}/>
             
         </main>
     )

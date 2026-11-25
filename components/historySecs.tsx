@@ -1,5 +1,5 @@
 
-import Image from "next/image";
+import SanityImage from "@/components/sanityImage";
 import { PortableText } from "next-sanity";
 import { TextWithImageSectionHistory } from "@/sanity/lib/interfaces";
 import { components } from "@/sanity/lib/components";
@@ -26,7 +26,7 @@ export default function HistoryComp({ heading, text, textWithImageUrl,caption,  
             </div>
             <div className={`w-full py-10 flex-col justify-center  lg:w-1/2 flex items-center h-[30rem]`}>
                 
-                    {textWithImageUrl ? <Image src={textWithImageUrl} alt={caption} width={1000} height={1000} className="object-cover" /> : null}
+                    {textWithImageUrl ? <SanityImage src={textWithImageUrl} alt={caption} width={1000} height={1000} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" /> : null}
         
             </div>
         </section>

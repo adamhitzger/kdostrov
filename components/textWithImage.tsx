@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SanityImage from "@/components/sanityImage";
 import { PortableText } from "next-sanity";
 import { TextWithImageSection } from "@/sanity/lib/interfaces";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export default function TextWithImage({ text, url, position, isDynamic, node, co
             </div>
             <div className={`w-full md:w-1/2 flex`}>
                 <div className={`relative w-full h-[36rem] md:h-96 mx-auto`}>
-                    <Image src={url} alt={url} fill={true} className="bg-cover object-contain min-h-full" />
+                    <SanityImage src={url} alt={url} fill={true} sizes="(min-width: 768px) 50vw, 100vw" className="bg-cover object-contain min-h-full" />
                 </div>
             </div>
         </section>

@@ -1,5 +1,5 @@
 import { GalleryCard } from "@/sanity/lib/interfaces";
-import Image from "next/image";
+import SanityImage from "@/components/sanityImage";
 import Link from "next/link";
 export default function Gallery({gallery}: {gallery: GalleryCard[]}){
   const gallery2 = gallery.slice(0,3)  
@@ -16,7 +16,7 @@ export default function Gallery({gallery}: {gallery: GalleryCard[]}){
             <div key={idx} className="w-full h-full max-w-md max-h-[36rem]">
               <Link href={`/fotogalerie/${g.slug}`}>
                 <div className=" relative  rounded-lg h-96">
-                  <Image src={g.photo} alt={g.photo} fill={true} className="object-cover w-full  mx-auto rounded-lg shadow-md shadow-white h-full hover:shadow-lg hover:opacity-80" />
+                  <SanityImage src={g.photo} alt={g.name} fill={true} sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover w-full  mx-auto rounded-lg shadow-md shadow-white h-full hover:shadow-lg hover:opacity-80" />
                 </div>
               </Link>
               <div className="text-white flex flex-col h-1/3 text-lg p-2">

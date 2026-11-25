@@ -1,7 +1,6 @@
-import Image from "next/image";
+import SanityImage from "@/components/sanityImage";
 
 export default function HeadingWithImages({ urls, heading }: { urls: string[], heading: string }) {
-    console.log(urls)
     return (
         <div className="w-full text-white text-5xl tracking-wide font-bold flex flex-col py-10">
             <div>
@@ -11,7 +10,7 @@ export default function HeadingWithImages({ urls, heading }: { urls: string[], h
                 {urls?.map((u: string, idx: number) => (
                     <div className="relative w-full h-screen rounded-lg" key={idx}>
                         <a href={u} download={u}>
-                            <Image src={u} alt={u} fill={true} className="object-fill w-full h-full rounded-lg hover:opacity-80" />
+                            <SanityImage src={u} alt={u} fill={true} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-fill w-full h-full rounded-lg hover:opacity-80" />
                         </a>
                     </div>
                 ))}

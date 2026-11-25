@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import SanityImage from "@/components/sanityImage"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
@@ -55,11 +55,12 @@ export default function Photos({
           whileHover={{ scale: 1.03 }}
           transition={{ duration: 0.2 }}
         >
-          <Image
+          <SanityImage
             src={g}
             alt={`photo-${idx}`}
             className="object-contain w-full h-full rounded-lg"
             fill
+            sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
           />
         </motion.div>
       ))}
@@ -109,10 +110,11 @@ export default function Photos({
                     exit={{ opacity: 0, x: -40 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Image
+                    <SanityImage
                       src={urls[selectedIndex]}
                       alt={`selected-${selectedIndex}`}
                       fill
+                      sizes="100vw"
                       className="object-contain"
                       priority
                     />

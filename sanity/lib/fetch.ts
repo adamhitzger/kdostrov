@@ -6,10 +6,10 @@ import { token } from "./token";
 
 /**
  * Data cache se obnovuje webhookem ze Sanity po publikování (app/api/revalidate/route.ts),
- * který invaliduje `tags` = `_type` změněného dokumentu. Hodina je jen pojistka pro případ,
+ * který invaliduje `tags` = `_type` změněného dokumentu. Den je jen pojistka pro případ,
  * že webhook selže — dřív to bylo 30 s, tedy až ~86k dotazů měsíčně na každý dotaz.
  */
-const REVALIDATE_FALLBACK = 3600;
+const REVALIDATE_FALLBACK = 86400;
 
 export async function sanityFetch<QueryResponse>({
   query,
@@ -39,7 +39,7 @@ export async function sanityFetch<QueryResponse>({
     stega,
     perspective: "published",
     // Živé API, ne API CDN: ta drží odpovědi až 60 s, takže refetch hned po webhooku
-    // by dostal ještě verzi před publikováním a cache si ji uložila na další hodinu.
+    // by dostal ještě verzi před publikováním a cache si ji uložila na další den.
     // Návštěvníky obsluhuje data cache Nextu, na Sanity jde dotaz jen po webhooku
     // nebo po REVALIDATE_FALLBACK.
     useCdn: false,

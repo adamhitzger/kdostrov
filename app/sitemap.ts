@@ -7,7 +7,6 @@ type Route = {
     url: string;
     lastModified: string;
   };
-export const dynamic = "force-dynamic"
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl: string = "https://kdostrov.cz";
     const staticPages: Route[] = [

@@ -3,10 +3,13 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { EventInterface } from "@/sanity/lib/interfaces";
 import { EVENT_QUERY } from "@/sanity/lib/queries";
 import {  Metadata } from "next";
+import { notFound } from "next/navigation";
+import SanityImage from "@/components/sanityImage";
+import { sanityJpg } from "@/lib/sanity-image";
 
 export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
     const e = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params, tags: ["event"] })
-    console.log(e)
+    if (!e) notFound();
     return{
         icons: {
             icon: "/sponzors/image.png"
@@ -31,23 +34,18 @@ export async function generateMetadata({params}:{params: { slug: string}}):Promi
             siteName: "Kulturní dům Ostrov Havlíčkův Brod",
             locale: "cs_CZ",
             type: "website",
-            images: [
-                {
-                    url: e.photo,
-                    width: 800,
-                    height: 600
-                }
-            ]
+            images: e.photo ? [{ url: sanityJpg(e.photo, 800, 600), width: 800, height: 600 }] : []
           }
     }
 }
 export default async function EventPage({ params }: { params: { slug: string } }) {
     const event = await sanityFetch<EventInterface>({ query: EVENT_QUERY, params: params, tags: ["event"] })
-    console.log(event);
+    if (!event) notFound();
 
     return (
         <main className="bg-white">
-            <section className={`w-full relative md:min-h-96 bg-cover flex z-10 before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]`} style={{ backgroundImage: `url(${event.photo})` }}>
+            <section className={`w-full relative md:min-h-96 overflow-hidden flex z-10 before:content-[''] before:absolute before:inset-0 before:block before:bg-gray-600 before:opacity-75 before:z-[-5]`}>
+                <SanityImage src={event.photo} alt="" fill={true} priority sizes="100vw" className="object-cover object-left-top -z-10" />
                 <div className="w-full leading-normal mt-20 space-y-4 lg:w-1/2 text-gray-200 font-bold text-3xl lg:text-5xl flex-col px-10 lg:px-20 py-10">
                     {event.name ? <span>{event.name}</span> : null}<br />
                     {event.date ? <span>{` ${new Date(event.date).toLocaleDateString("cs-cz")}`}</span> : null}<br />

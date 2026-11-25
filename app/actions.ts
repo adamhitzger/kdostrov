@@ -4,6 +4,7 @@ import { createTransport } from "nodemailer";
 import { emailType, EventCard } from "@/sanity/lib/interfaces";
 import { groq } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/fetch";
+import { sanityJpg } from "@/lib/sanity-image";
 
 
 interface NewsletterOptions {
@@ -57,7 +58,7 @@ export async function generateNewsletterHTML(
                   event.photo
                     ? `
                   <a href="${baseUrl}/${event.slug}" style="text-decoration: none;">
-                    <img src="${event.photo}" alt="${event.name}" width="100%" style="display: block; max-height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;" />
+                    <img src="${sanityJpg(event.photo, 1200)}" alt="${event.name}" width="100%" style="display: block; max-height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;" />
                   </a>
                 `
                     : ""
